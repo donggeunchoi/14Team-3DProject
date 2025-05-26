@@ -25,4 +25,14 @@ public class ObstacleMove : MonoBehaviour
     {
         _rigidbody.velocity = Vector3.back * speed; // 장애물 이동속도
     }
+    
+    // 플레이어와 장애물이 충돌하면 게임 정지
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            Time.timeScale = 0;
+            Debug.Log("장애물과 충돌로 인한 게임정지");
+        }
+    }
 }
