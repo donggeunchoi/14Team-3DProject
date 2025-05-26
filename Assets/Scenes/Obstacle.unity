@@ -526,7 +526,7 @@ MonoBehaviour:
   spawnYPosition: 1
   spawnZPosition: 50
   minSpawnDelay: 5
-  maxSpawnDelay: 15
+  maxSpawnDelay: 10
 --- !u!4 &1762732618
 Transform:
   m_ObjectHideFlags: 0

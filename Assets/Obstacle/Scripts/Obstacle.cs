@@ -47,4 +47,13 @@ public class Obstacle : MonoBehaviour
             newObstacle.transform.parent = this.transform;
         }
     }
+
+    // 플레이어와 장애물이 충돌하면 게임 정지
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            Time.timeScale = 0;
+        }
+    }
 }
