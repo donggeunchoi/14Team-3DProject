@@ -32,5 +32,18 @@ public class UIController : MonoBehaviour
         isStopping = true;
         stopPanel.SetActive(true);
     }
+
+    public void OnClickRestart()
+    {
+        Time.timeScale = 1f;
+        isStopping = false;
+        stopPanel.SetActive(false);
+    }
+    
+    public void OnClickExit()
+    {
+       //시작화면으로 돌아가기
+       
+    }
     
 }
