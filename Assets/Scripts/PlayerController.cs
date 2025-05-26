@@ -31,13 +31,13 @@ public class PlayerController : MonoBehaviour
         UpdateLanePosition();
     }
 
-    private void LateUpdate()
-    {
-        if (canLook)
-        {
-            // CameraLook();
-        }
-    }
+    // private void LateUpdate()
+    // {
+    //     if (canLook)
+    //     {
+    //         // CameraLook();
+    //     }
+    // }
 
 
     private void MoveForward()
