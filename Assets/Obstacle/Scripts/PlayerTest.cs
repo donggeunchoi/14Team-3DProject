@@ -5,7 +5,7 @@ using System.Threading;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Player : MonoBehaviour
+public class PlayerTest : MonoBehaviour
 {
     [SerializeField] private Rigidbody _rigidbody;
     private Vector2 moveInput;
