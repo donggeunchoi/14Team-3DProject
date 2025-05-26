@@ -11,6 +11,14 @@ public class ObstacleMove : MonoBehaviour
     {
         _rigidbody = GetComponent<Rigidbody>();
     }
+
+    void Update()
+    {
+        if (transform.position.z <= -15)
+        {
+            Destroy(this.gameObject);
+        }
+    }
     
     // Update is called once per frame
     void FixedUpdate()
