@@ -102,11 +102,17 @@ public class AudioManager : MonoBehaviour
     {
         bgmVolume = Mathf.Clamp01(volume);
         bgmSource.volume = bgmVolume;
+        
+        PlayerPrefs.SetFloat("BGMVolume", bgmVolume);
+        PlayerPrefs.Save();
     }
 
     public void SetSFXVolume(float volume)
     {
         sfxVolume = Mathf.Clamp01(volume);
+        
+        PlayerPrefs.SetFloat("SFXVolume", sfxVolume);
+        PlayerPrefs.Save();
     }
     #endregion
 }
