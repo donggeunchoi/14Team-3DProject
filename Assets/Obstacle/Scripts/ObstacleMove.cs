@@ -5,7 +5,7 @@ using UnityEngine;
 public class ObstacleMove : MonoBehaviour
 {
     Rigidbody _rigidbody;
-    public float speed = 5f;
+    public float ObstacleSpeed = 5f;
 
     void Awake()
     {
@@ -23,7 +23,7 @@ public class ObstacleMove : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        _rigidbody.velocity = Vector3.back * speed; // 장애물 이동속도
+        _rigidbody.velocity = Vector3.back * ObstacleSpeed; // 장애물 이동속도
     }
     
     // 플레이어와 장애물이 충돌하면 게임 정지
