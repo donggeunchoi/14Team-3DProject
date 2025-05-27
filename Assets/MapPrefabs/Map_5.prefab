@@ -2033,7 +2033,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4623225954074334647}
   - component: {fileID: 5262227208091644099}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Road_Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2373,6 +2373,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: detail-parasol-b
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: fab92b1a9b3794547a6ceafce8d80191, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2639,6 +2643,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 3721d03fde5694f6c822bd1fdf959e33, type: 3}
       propertyPath: m_Name
       value: building-g
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3721d03fde5694f6c822bd1fdf959e33, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3125,6 +3133,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 8b246825a02bd4e55ae5e1cf77320d5e, type: 3}
       propertyPath: m_Name
       value: light-curved
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8b246825a02bd4e55ae5e1cf77320d5e, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3671,6 +3683,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: building-skyscraper-c
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cb843c5ef6cab434cbf5762c5e2f53d8, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3937,6 +3953,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: e2f7b90461e6b48ad9701577d137dfda, type: 3}
       propertyPath: m_Name
       value: building-k
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e2f7b90461e6b48ad9701577d137dfda, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -5,7 +5,7 @@ using UnityEngine;
 public class ObstacleMove : MonoBehaviour
 {
     Rigidbody _rigidbody;
-    public float ObstacleSpeed = 5f;
+    public float ObstacleSpeed = 25f;
 
     void Awake()
     {
@@ -33,6 +33,7 @@ public class ObstacleMove : MonoBehaviour
         {
             Time.timeScale = 0;
             Debug.Log("장애물과 충돌로 인한 게임정지");
+            UIController.Instance.GameOver();
         }
     }
 }
