@@ -337,7 +337,7 @@ MonoBehaviour:
     m_ActionName: Player/Jump[/Keyboard/space]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: Player
+  m_DefaultActionMap: TestPlayer
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!114 &219894423
@@ -499,13 +499,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 662515024}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.30070576, y: 0, z: 0, w: 0.953717}
-  m_LocalPosition: {x: 0, y: 5, z: -4}
+  m_LocalRotation: {x: 0.17364816, y: 0, z: 0, w: 0.9848078}
+  m_LocalPosition: {x: 0, y: 5, z: -6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 623058333}
-  m_LocalEulerAnglesHint: {x: 35, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 20, y: 0, z: 0}
 --- !u!1 &1762732616
 GameObject:
   m_ObjectHideFlags: 0
@@ -537,9 +537,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obstaclePrefab: {fileID: 5537642873908114375, guid: 72fddd98319b53b48afed998bc6f0ddf, type: 3}
   spawnXPosition:
-  - -5
+  - -2.6
   - 0
-  - 5
+  - 2.6
   spawnYPosition: 1
   spawnZPosition: 50
   minSpawnDelay: 2
