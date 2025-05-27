@@ -1,13 +1,12 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class MapManager : MonoBehaviour
 {
-    public Transform player;                 // 플레이어 위치
-    public List<GameObject> mapPrefabs;     // Map_1~5 프리팹 리스트
-    public int initialSpawnCount = 5;       // 처음 배치할 맵 조각 개수
-    public float mapLength = 10f;            // 각 맵 조각의 길이 (z축 기준)
+    [SerializeField] private Transform player;                 // 플레이어 위치
+    [SerializeField] private List<GameObject> mapPrefabs;      // Map_1~5 프리팹 리스트
+    [SerializeField] private int firstSpawnCount = 5;          // 처음 배치할 맵 조각 개수
+    private float mapLength = 10f;                             // 각 맵 조각의 길이 (z축 기준)
 
     private Queue<GameObject> mapPool = new Queue<GameObject>();
     private float nextSpawnZ;                // 다음 맵 조각 위치 기준
@@ -18,7 +17,7 @@ public class MapManager : MonoBehaviour
         nextSpawnZ = 0;
 
         // 처음 5개 맵 조각 배치
-        for (int i = 0; i < initialSpawnCount; i++)
+        for (int i = 0; i < firstSpawnCount; i++)
         {
             SpawnNextMapPiece();
         }
@@ -26,9 +25,9 @@ public class MapManager : MonoBehaviour
 
     void Update()
     {
-        float recycleTriggerZ = nextSpawnZ - (initialSpawnCount * mapLength * 0.75f);
+        float TriggerZ = nextSpawnZ - (firstSpawnCount * mapLength * 0.75f);
         // 플레이어가 다음 맵 조각 기준점에 가까워지면 맵 재배치
-        if (player.position.z > recycleTriggerZ)
+        if (player.position.z > TriggerZ)
         {
             RecycleMapPiece();
         }
@@ -38,7 +37,7 @@ public class MapManager : MonoBehaviour
     {
         int index = GetRandomIndex();
 
-        var newMap = Instantiate(mapPrefabs[index], new Vector3(0, 0, nextSpawnZ), Quaternion.identity);
+        GameObject newMap = Instantiate(mapPrefabs[index], new Vector3(0, 0, nextSpawnZ), Quaternion.identity);
         mapPool.Enqueue(newMap);
 
         nextSpawnZ += mapLength;
@@ -49,8 +48,8 @@ public class MapManager : MonoBehaviour
     {
         if (mapPool.Count == 0) return;
 
-        // 가장 오래된 맵 조각 꺼내서 앞으로 재배치
-        var oldMap = mapPool.Dequeue();
+        // 맵 조각 꺼내서 앞으로 재배치
+        GameObject oldMap = mapPool.Dequeue();
 
         int index = GetRandomIndex();
         oldMap.transform.position = new Vector3(0, 0, nextSpawnZ);

@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TestMove : MonoBehaviour
 {
-    public float speed = 5f;
+    [SerializeField] private float speed = 5f;
 
     void Update()
     {
