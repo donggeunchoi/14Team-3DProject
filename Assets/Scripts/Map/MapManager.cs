@@ -6,7 +6,7 @@ public class MapManager : MonoBehaviour
 {
     [SerializeField] private Transform player;                 // 플레이어 위치
     [SerializeField] private List<GameObject> mapPrefabs;      // Map_1~5 프리팹 리스트
-    [SerializeField] private int firstSpawnCount = 5;          // 처음 배치할 맵 조각 개수
+    [SerializeField] private int firstSpawnCount = 10;          // 처음 배치할 맵 조각 개수
 
     private float mapLength = 10f;                             // 각 맵 조각의 길이 (z축 기준)
     private float nextSpawnZ;                                  // 다음 맵 조각 Z위치 기준

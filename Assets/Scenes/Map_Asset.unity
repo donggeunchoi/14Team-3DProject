@@ -1537,7 +1537,7 @@ MonoBehaviour:
   - {fileID: 3921119402768364648, guid: d495640e7dc6e40b2b0aafa71365104a, type: 3}
   - {fileID: 7033254851290017664, guid: a74995d26b9814620aa517947ed3b410, type: 3}
   - {fileID: 9221526938815551569, guid: 148a70c441abc42d2b1951a3231eea37, type: 3}
-  firstSpawnCount: 5
+  firstSpawnCount: 10
 --- !u!4 &623420929
 Transform:
   m_ObjectHideFlags: 0
@@ -2255,8 +2255,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1176cd223f494be7adff47d6176cf14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sfxSlider: {fileID: 0}
-  bgmSlider: {fileID: 0}
+  sfxScrollbar: {fileID: 0}
+  bgmScrollbar: {fileID: 0}
 --- !u!114 &858476921
 MonoBehaviour:
   m_ObjectHideFlags: 0
