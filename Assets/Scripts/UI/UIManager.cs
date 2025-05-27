@@ -16,6 +16,19 @@ public class UIManager : MonoBehaviour
 
     private int score = 0;
     private int combo = 0;
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
     
     void Start()
     {
@@ -42,12 +55,12 @@ public class UIManager : MonoBehaviour
         UpdateCombo(combo);
     }
 
-    private void UpdateScore(int newScore)
+    public void UpdateScore(int newScore)
     {
         scoreText.text = newScore.ToString();
     }
 
-    private void UpdateCombo(int newCombo)
+    public void UpdateCombo(int newCombo)
     {
         comboText.text = newCombo.ToString();
     }
