@@ -869,11 +869,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   backgroundMusic: {fileID: 8300000, guid: 87f6555033cb962419c3f3cf649a9ea2, type: 3}
-  bgmVolume: 0.08
+  bgmVolume: 1
   jumpSound: {fileID: 8300000, guid: e43e0a1bb4029604887eb91d71350765, type: 3}
   coinSound: {fileID: 8300000, guid: 9add554c6bca38f44b2d3c3860d1d5b5, type: 3}
   gameOverSound: {fileID: 8300000, guid: 4d564ef5fedbb5a48adb6bf281b20ef7, type: 3}
-  sfxVolume: 0.3
+  sfxVolume: 1
 --- !u!4 &326515751
 Transform:
   m_ObjectHideFlags: 0
@@ -3954,7 +3954,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1481636290
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4256,7 +4256,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1585611270
 RectTransform:
   m_ObjectHideFlags: 0
