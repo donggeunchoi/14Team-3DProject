@@ -16,9 +16,10 @@ public class AudioManager : MonoBehaviour
     [Range(0f, 1f)] public float sfxVolume = 0.3f;
     private AudioSource sfxSource;
 
+    private bool isGamePlaying = false; // 게임 플레이 상태 추적
+
     private void Awake()
     {
-       
         if (Instance == null)
         {
             Instance = this;
@@ -34,7 +35,7 @@ public class AudioManager : MonoBehaviour
         bgmSource = gameObject.AddComponent<AudioSource>();
         sfxSource = gameObject.AddComponent<AudioSource>();
 
-        // 배경음 설정
+        // 초기 배경음 설정 (재생은 하지 않음)
         SetupBGM();
     }
 
@@ -43,24 +44,38 @@ public class AudioManager : MonoBehaviour
         bgmSource.clip = backgroundMusic;
         bgmSource.volume = bgmVolume;
         bgmSource.loop = true;
-        bgmSource.Play();
+        // Awake에서 바로 재생하지 않음
+    }
+
+    // 게임 시작 시 호출할 메서드
+    public void StartGame()
+    {
+        isGamePlaying = true;
+        PlayBGM();
+    }
+
+    // 게임 종료 시 호출할 메서드
+    public void EndGame()
+    {
+        isGamePlaying = false;
+        StopBGM();
     }
 
     #region 효과음 재생 메서드
     public void PlayJumpSound()
     {
-        PlaySFX(jumpSound);
+        if (isGamePlaying) PlaySFX(jumpSound);
     }
 
     public void PlayCoinSound()
     {
-        PlaySFX(coinSound);
+        if (isGamePlaying) PlaySFX(coinSound);
     }
 
     public void PlayGameOverSound()
     {
         PlaySFX(gameOverSound);
-        StopBGM(); // 게임오버 시 배경음 정지
+        EndGame(); // 게임오버 시 배경음 정지
     }
     #endregion
 
@@ -75,7 +90,7 @@ public class AudioManager : MonoBehaviour
     #region 배경음 제어
     public void PlayBGM()
     {
-        if (!bgmSource.isPlaying)
+        if (!bgmSource.isPlaying && isGamePlaying)
         {
             bgmSource.Play();
         }
@@ -88,12 +103,12 @@ public class AudioManager : MonoBehaviour
 
     public void PauseBGM()
     {
-        bgmSource.Pause();
+        if (isGamePlaying) bgmSource.Pause();
     }
 
     public void ResumeBGM()
     {
-        bgmSource.UnPause();
+        if (isGamePlaying) bgmSource.UnPause();
     }
     #endregion
 
@@ -102,7 +117,7 @@ public class AudioManager : MonoBehaviour
     {
         bgmVolume = Mathf.Clamp01(volume);
         bgmSource.volume = bgmVolume;
-        
+
         PlayerPrefs.SetFloat("BGMVolume", bgmVolume);
         PlayerPrefs.Save();
     }
@@ -110,7 +125,7 @@ public class AudioManager : MonoBehaviour
     public void SetSFXVolume(float volume)
     {
         sfxVolume = Mathf.Clamp01(volume);
-        
+
         PlayerPrefs.SetFloat("SFXVolume", sfxVolume);
         PlayerPrefs.Save();
     }
