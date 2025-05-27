@@ -104,7 +104,7 @@ public class PlayerController : MonoBehaviour
     {
         if (context.phase == InputActionPhase.Started && IsGrounded() && isRolling == false)
         {
-            Roll();
+            StartCoroutine(Roll());
             _animator.SetTrigger("Roll");
         }
     }
