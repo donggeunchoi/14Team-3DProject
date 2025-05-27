@@ -22,7 +22,16 @@ public class ScoreManager : MonoBehaviour
 
     public void AddScore(int score)
     {
-        currentScore += score;
+        currentScore += score ;
         Debug.Log($"점수: {currentScore}");
+        if (UIManager.Instance != null)
+        {
+            UIManager.Instance.UpdateScore(currentScore);
+        }
+        else
+        {
+            Debug.LogWarning("UIManager.Instance가 없어요");
+        }
+        
     }
 }
