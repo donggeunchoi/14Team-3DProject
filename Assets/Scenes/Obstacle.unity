@@ -536,19 +536,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstaclePrefab:
-  - {fileID: 6927436808814208658, guid: ae1ff2428dcbfdd439c3885f7a402ef2, type: 3}
-  - {fileID: 4689951828064882192, guid: 744e298f3d4c7144cb5be1135b7d5132, type: 3}
   - {fileID: 8665277427336616189, guid: 80821e1eb3dd17c4d9e38617be1f575e, type: 3}
   - {fileID: 3644546378239526850, guid: 82a4cee2741d0dc4eba3e7f0c6ca7f1c, type: 3}
   - {fileID: 1797683688515155284, guid: a11fb080dbb0fb348815b2d9acc30783, type: 3}
-  spawnXPosition:
-  - -2.6
-  - 0
-  - 2.6
+  longObstaclePrefab:
+  - {fileID: 6927436808814208658, guid: ae1ff2428dcbfdd439c3885f7a402ef2, type: 3}
+  - {fileID: 4689951828064882192, guid: 744e298f3d4c7144cb5be1135b7d5132, type: 3}
   spawnYPosition: 0.1
-  spawnZPosition: 70
+  spawnZPosition: 60
   minSpawnDelay: 2
   maxSpawnDelay: 5
+  obstacleCount: 10
+  betweenObstacle: 2
 --- !u!4 &1762732618
 Transform:
   m_ObjectHideFlags: 0
