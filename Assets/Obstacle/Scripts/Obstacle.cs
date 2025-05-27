@@ -7,7 +7,7 @@ public class Obstacle : MonoBehaviour
 {
     [SerializeField] private GameObject obstaclePrefab; // 장애물 프리팹 넣기
     [Header("장애물 생성 설정")]
-    public float[] spawnXPosition = { -2.6f, 0f, 2.6f }; // 장애물 가로 간격
+    public float[] spawnXPosition = { -5f, 0f, 5f }; // 장애물 가로 간격
     public float spawnYPosition; // 높이
     public float spawnZPosition; // 화면 뒷부분
 

@@ -2,7 +2,7 @@
     "name": "PlayerInput",
     "maps": [
         {
-            "name": "TestPlayer",
+            "name": "Player",
             "id": "c23bdc42-ec69-4ee5-aaf3-d5f92df32151",
             "actions": [
                 {
