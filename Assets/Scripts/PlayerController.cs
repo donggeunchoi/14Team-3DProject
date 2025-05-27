@@ -106,6 +106,7 @@ public class PlayerController : MonoBehaviour
         {
             StartCoroutine(Roll());
             _animator.SetTrigger("Roll");
+            
         }
     }
    
@@ -119,10 +120,9 @@ public class PlayerController : MonoBehaviour
         return Physics.Raycast(origin,Vector3.down,checkDistance,groundLayerMask);
     }
 
-    private IEnumerator Roll()
+    private IEnumerator Roll() //구르기 코루틴으로 작성
     {
         isRolling = true;
-        
         _capsuleCollider.height  = slideColliderHeight;
         _capsuleCollider.center  = new Vector3(_originalColliderCenter.x, slideColliderCenterY, _originalColliderCenter.z);
         yield return new WaitForSeconds(rollDuration);
