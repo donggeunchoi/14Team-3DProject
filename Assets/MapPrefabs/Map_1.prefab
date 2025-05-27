@@ -33,6 +33,7 @@ Transform:
   - {fileID: 7200101683391972965}
   - {fileID: 755860323083347684}
   - {fileID: 5038161303997930800}
+  - {fileID: 7320879714558030370}
   m_Father: {fileID: 2352324628908000852}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &229040651581420944
@@ -877,7 +878,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4041267567437338108}
   - component: {fileID: 573891217397250755}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Road_Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1478,7 +1479,6 @@ Transform:
   - {fileID: 4041267567437338108}
   - {fileID: 8668253273687299425}
   - {fileID: 3244177176398105168}
-  - {fileID: 7320879714558030370}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6284690836976181234
@@ -2585,6 +2585,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: building-a
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4ceb868a4825b44d29372d1235e8ca99, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3210,6 +3214,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: building-h
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7b2ffa7db18ab4f9e80eb5c1319c5b54, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3754,6 +3762,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: ec91a2ede6395482db949fc514132e1d, type: 3}
       propertyPath: m_Name
       value: light-square
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ec91a2ede6395482db949fc514132e1d, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4320,7 +4332,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 2352324628908000852}
+    m_TransformParent: {fileID: 3244177176398105168}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 4ceb868a4825b44d29372d1235e8ca99, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4340,7 +4352,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4ceb868a4825b44d29372d1235e8ca99, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4ceb868a4825b44d29372d1235e8ca99, type: 3}
       propertyPath: m_LocalRotation.y
@@ -4348,7 +4360,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4ceb868a4825b44d29372d1235e8ca99, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4ceb868a4825b44d29372d1235e8ca99, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -4365,6 +4377,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 4ceb868a4825b44d29372d1235e8ca99, type: 3}
       propertyPath: m_Name
       value: building-a
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4ceb868a4825b44d29372d1235e8ca99, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4427,6 +4443,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: d47e0d5372184416bb40ce3cad7d9e2d, type: 3}
       propertyPath: m_Name
       value: building-skyscraper-a
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d47e0d5372184416bb40ce3cad7d9e2d, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

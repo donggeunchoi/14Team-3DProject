@@ -325,7 +325,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2737680981528960883}
   - component: {fileID: 550064151892815414}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Road_Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2993,6 +2993,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: light-curved
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8b246825a02bd4e55ae5e1cf77320d5e, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3186,6 +3190,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: e2f7b90461e6b48ad9701577d137dfda, type: 3}
       propertyPath: m_Name
       value: building-k
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e2f7b90461e6b48ad9701577d137dfda, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3406,6 +3414,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 062534a4a955b44808ba873778223fa3, type: 3}
       propertyPath: m_Name
       value: building-j
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 062534a4a955b44808ba873778223fa3, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -5,7 +5,7 @@ using UnityEngine;
 public class ObstacleMove : MonoBehaviour
 {
     Rigidbody _rigidbody;
-    public float ObstacleSpeed = 5f;
+    public float ObstacleSpeed = 25f;
 
     void Awake()
     {

@@ -1402,7 +1402,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2620908968262499092}
   - component: {fileID: 4060343483082799716}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Road_Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2651,6 +2651,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: building-m (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: da7aaad60f7c844dfba4daa5e0acdc86, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2924,6 +2928,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: da7aaad60f7c844dfba4daa5e0acdc86, type: 3}
       propertyPath: m_Name
       value: building-m
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: da7aaad60f7c844dfba4daa5e0acdc86, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3602,6 +3610,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: building-f
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3b2939abbe23041d3b82e0f4f3d8d5be, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3875,6 +3887,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 8357c38f8f3c9417d97646c2e3d1a5c6, type: 3}
       propertyPath: m_Name
       value: building-b
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8357c38f8f3c9417d97646c2e3d1a5c6, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4413,6 +4429,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: ec91a2ede6395482db949fc514132e1d, type: 3}
       propertyPath: m_Name
       value: light-square
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ec91a2ede6395482db949fc514132e1d, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
