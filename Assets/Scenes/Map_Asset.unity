@@ -1982,6 +1982,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startPanel: {fileID: 1815130750}
   stopPanel: {fileID: 272913904}
+  endPanel: {fileID: 1734027459}
 --- !u!114 &794182697
 MonoBehaviour:
   m_ObjectHideFlags: 0
