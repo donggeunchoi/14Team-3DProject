@@ -5,9 +5,6 @@ using UnityEngine.InputSystem.LowLevel;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
 
 public enum GameState
 {
@@ -76,11 +73,7 @@ public class GameManager : MonoBehaviour
 
     public void QuitGame()
     {
-    #if UNITY_EDITOR
-            EditorApplication.isPlaying = false; // ▶ 에디터에서 실행 중지
-    #else
-        Application.Quit(); // ▶ 빌드된 게임 종료
-    #endif
+        Time.timeScale = 0f;
     }
     
     
