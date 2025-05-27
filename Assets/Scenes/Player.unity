@@ -325,10 +325,13 @@ MonoBehaviour:
   moveSpeed: 5
   laneChangeSpeed: 10
   jumpForce: 20
-  laneDistance: 5
+  laneDistance: 2.6
   groundLayerMask:
     serializedVersion: 2
     m_Bits: 128
+  rollDuration: 1
+  slideColliderHeight: 0.5
+  slideColliderCenterY: 0.25
   canLook: 1
 --- !u!114 &607258078
 MonoBehaviour:
@@ -505,6 +508,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 0d1679c6-4f78-447d-be44-ee722af5c8b3
     m_ActionName: Player/MoveRight[/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 607258077}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: onRollInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 7b92b6a9-1591-49e4-a3a4-e04be4009376
+    m_ActionName: Player/Slide[/Keyboard/shift]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
