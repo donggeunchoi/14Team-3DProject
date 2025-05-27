@@ -10,6 +10,7 @@ public class PlayerTest : MonoBehaviour
     [SerializeField] private Rigidbody _rigidbody;
     private Vector2 moveInput;
     public float moveSpeed = 25f;
+    public float jumpForce = 5f;
     
     private void Update()
     {
@@ -31,6 +32,14 @@ public class PlayerTest : MonoBehaviour
         else
         {
             moveInput = Vector2.zero;
+        }
+    }
+    
+    public void OnJump(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            _rigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
     }
 }
