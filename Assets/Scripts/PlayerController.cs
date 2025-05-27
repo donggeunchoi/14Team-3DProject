@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
 
     private bool isRolling = false;
     private float _originalColldierHeight;
+    private IEnumerator _rollCoroutine;
     private Vector3 _originalColliderCenter;
     private CapsuleCollider _capsuleCollider;
     private Animator _animator;
@@ -104,7 +105,11 @@ public class PlayerController : MonoBehaviour
     {
         if (context.phase == InputActionPhase.Started && IsGrounded() && isRolling == false)
         {
-            StartCoroutine(Roll());
+            if (_rollCoroutine != null)
+                StopCoroutine(_rollCoroutine);
+
+            _rollCoroutine = Roll();
+            StartCoroutine(_rollCoroutine);
             _animator.SetTrigger("Roll");
             
         }
@@ -120,6 +125,7 @@ public class PlayerController : MonoBehaviour
         return Physics.Raycast(origin,Vector3.down,checkDistance,groundLayerMask);
     }
 
+    
     private IEnumerator Roll() //구르기 코루틴으로 작성
     {
         isRolling = true;
