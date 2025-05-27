@@ -147,7 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3344462f91640c4bb3fe4db8203cdc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 15
+  ObstacleSpeed: 25
 --- !u!1001 &111225160779864655
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -195,6 +195,14 @@ PrefabInstance:
     - target: {fileID: 2613214067116384743, guid: 87c9443ee805d6c409b7005fa90c94c6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3440249540263913057, guid: 87c9443ee805d6c409b7005fa90c94c6, type: 3}
+      propertyPath: m_Size.x
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3440249540263913057, guid: 87c9443ee805d6c409b7005fa90c94c6, type: 3}
+      propertyPath: m_Size.y
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 5845510831992643578, guid: 87c9443ee805d6c409b7005fa90c94c6, type: 3}
       propertyPath: m_Name

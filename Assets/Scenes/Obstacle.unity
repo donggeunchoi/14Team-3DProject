@@ -161,7 +161,7 @@ Transform:
   m_GameObject: {fileID: 80171772}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.48661, y: 3.5168412, z: -3.5267637}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -178,10 +178,10 @@ GameObject:
   - component: {fileID: 219894421}
   - component: {fileID: 219894420}
   - component: {fileID: 219894419}
+  - component: {fileID: 219894424}
   - component: {fileID: 219894418}
   - component: {fileID: 219894422}
   - component: {fileID: 219894423}
-  - component: {fileID: 219894424}
   m_Layer: 0
   m_Name: PlayerTest
   m_TagString: Player
@@ -319,6 +319,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 215ad7a5-26a5-43f9-958b-b0698a704169
     m_ActionName: Player/New action[/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 219894423}
+        m_TargetAssemblyTypeName: PlayerTest, Assembly-CSharp
+        m_MethodName: OnJump
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 82855b14-7486-48f0-a17d-d12bcfc5b385
+    m_ActionName: Player/Jump[/Keyboard/space]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -337,7 +353,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: 219894424}
-  speed: 35
+  moveSpeed: 25
+  jumpForce: 10
 --- !u!54 &219894424
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -346,7 +363,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 219894417}
   serializedVersion: 4
-  m_Mass: 20
+  m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -520,13 +537,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obstaclePrefab: {fileID: 5537642873908114375, guid: 72fddd98319b53b48afed998bc6f0ddf, type: 3}
   spawnXPosition:
-  - -3
+  - -5
   - 0
-  - 3
+  - 5
   spawnYPosition: 1
   spawnZPosition: 50
-  minSpawnDelay: 5
-  maxSpawnDelay: 10
+  minSpawnDelay: 2
+  maxSpawnDelay: 5
 --- !u!4 &1762732618
 Transform:
   m_ObjectHideFlags: 0
@@ -642,7 +659,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 0.1, z: 100}
+  m_LocalScale: {x: 20, y: 0.1, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -741,63 +758,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!1001 &4573767798180724246
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1024135229112894249, guid: 72fddd98319b53b48afed998bc6f0ddf, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1024135229112894249, guid: 72fddd98319b53b48afed998bc6f0ddf, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1024135229112894249, guid: 72fddd98319b53b48afed998bc6f0ddf, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 1024135229112894249, guid: 72fddd98319b53b48afed998bc6f0ddf, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1024135229112894249, guid: 72fddd98319b53b48afed998bc6f0ddf, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1024135229112894249, guid: 72fddd98319b53b48afed998bc6f0ddf, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1024135229112894249, guid: 72fddd98319b53b48afed998bc6f0ddf, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1024135229112894249, guid: 72fddd98319b53b48afed998bc6f0ddf, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1024135229112894249, guid: 72fddd98319b53b48afed998bc6f0ddf, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1024135229112894249, guid: 72fddd98319b53b48afed998bc6f0ddf, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5537642873908114375, guid: 72fddd98319b53b48afed998bc6f0ddf, type: 3}
-      propertyPath: m_Name
-      value: Obstacle
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 72fddd98319b53b48afed998bc6f0ddf, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -806,5 +766,4 @@ SceneRoots:
   - {fileID: 1930160978}
   - {fileID: 1762732618}
   - {fileID: 219894421}
-  - {fileID: 4573767798180724246}
   - {fileID: 80171774}

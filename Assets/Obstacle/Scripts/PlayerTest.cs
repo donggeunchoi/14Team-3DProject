@@ -9,7 +9,8 @@ public class PlayerTest : MonoBehaviour
 {
     [SerializeField] private Rigidbody _rigidbody;
     private Vector2 moveInput;
-    public float speed = 25f;
+    public float moveSpeed = 25f;
+    public float jumpForce = 5f;
     
     private void Update()
     {
@@ -19,7 +20,7 @@ public class PlayerTest : MonoBehaviour
     public void Move()
     {
         Vector3 move = new Vector3(moveInput.x, 0, 0);
-        _rigidbody.MovePosition(this.transform.position + move * speed * Time.deltaTime);
+        _rigidbody.MovePosition(this.transform.position + move * moveSpeed * Time.deltaTime);
     }
     
     public void OnMove(InputAction.CallbackContext context)
@@ -31,6 +32,14 @@ public class PlayerTest : MonoBehaviour
         else
         {
             moveInput = Vector2.zero;
+        }
+    }
+    
+    public void OnJump(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            _rigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
     }
 }
