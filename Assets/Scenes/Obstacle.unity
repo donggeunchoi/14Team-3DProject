@@ -546,7 +546,7 @@ MonoBehaviour:
   - 0
   - 2.6
   spawnYPosition: 0.1
-  spawnZPosition: 50
+  spawnZPosition: 70
   minSpawnDelay: 2
   maxSpawnDelay: 5
 --- !u!4 &1762732618
@@ -770,5 +770,5 @@ SceneRoots:
   - {fileID: 1972382391}
   - {fileID: 1930160978}
   - {fileID: 1762732618}
-  - {fileID: 219894421}
   - {fileID: 80171774}
+  - {fileID: 219894421}
