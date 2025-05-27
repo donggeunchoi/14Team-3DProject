@@ -60,7 +60,7 @@ public class UIManager : MonoBehaviour
         scoreText.text = newScore.ToString();
     }
 
-    private void UpdateCombo(int newCombo)
+    public void UpdateCombo(int newCombo)
     {
         comboText.text = newCombo.ToString();
     }
