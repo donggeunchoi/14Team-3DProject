@@ -4,16 +4,23 @@ using UnityEngine;
 
 public class MapManager : MonoBehaviour
 {
-    [SerializeField] private Transform player;                 // 플레이어 위치
-    [SerializeField] private List<GameObject> mapPrefabs;      // Map_1~5 프리팹 리스트
-    [SerializeField] private int firstSpawnCount = 10;          // 처음 배치할 맵 조각 개수
+    // 플레이어 위치
+    [SerializeField] private Transform player;
+    // Map_1~5 프리팹 리스트                
+    [SerializeField] private List<GameObject> mapPrefabs;
+    // 처음 배치할 맵 조각 개수
+    [SerializeField] private int firstSpawnCount = 10;
 
-    private float mapLength = 10f;                             // 각 맵 조각의 길이 (z축 기준)
-    private float nextSpawnZ;                                  // 다음 맵 조각 Z위치 기준
-    private float triggerOffsetZ;                              // 플레이어의 거리가 가까워지면 재배치
+    // 각 맵 조각의 길이 (z축 기준)
+    private float mapLength = 10f;
+    // 다음 맵 조각 Z위치 기준                           
+    private float nextSpawnZ;
+    // 플레이어의 거리가 가까워지면 재배치                                  
+    private float triggerOffsetZ;
 
     private Queue<GameObject> mapPool = new Queue<GameObject>();
-    private bool isRecycling = false;                          // 중복 호출 방지용
+    // 중복 호출 방지용
+    private bool isRecycling = false;
 
     void Start()
     {
@@ -41,7 +48,8 @@ public class MapManager : MonoBehaviour
         // 첫 생성시 랜덤 패턴 배치
         int index = Random.Range(0, mapPrefabs.Count);
 
-        GameObject newMap = Instantiate(mapPrefabs[index], new Vector3(0, 0, nextSpawnZ), Quaternion.identity);
+        GameObject newMap = Instantiate(mapPrefabs[index],
+        new Vector3(0, 0, nextSpawnZ), Quaternion.identity);
 
         mapPool.Enqueue(newMap);
         nextSpawnZ += mapLength;
@@ -54,13 +62,17 @@ public class MapManager : MonoBehaviour
 
         if (mapPool.Count > 0)
         {
-            GameObject oldMap = mapPool.Dequeue();                      // 가장 오래된 맵 꺼냄
-            oldMap.transform.position = new Vector3(0, 0, nextSpawnZ);  // 앞쪽으로 이동
+            // 가장 오래된 맵 꺼냄
+            GameObject oldMap = mapPool.Dequeue();
+            // 앞쪽으로 이동                   
+            oldMap.transform.position = new Vector3(0, 0, nextSpawnZ);
 
-            mapPool.Enqueue(oldMap);                                    // 다시 풀에 추가
+            // 다시 풀에 추가
+            mapPool.Enqueue(oldMap);
             nextSpawnZ += mapLength;
 
-            yield return null;                                           // 한 프레임 쉬어서 부하를 분산
+            // 한 프레임 쉬어서 부하를 분산
+            yield return null;
         }
 
         isRecycling = false;
