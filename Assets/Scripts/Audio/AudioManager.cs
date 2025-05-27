@@ -1,13 +1,17 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance { get; private set; }
 
     [Header("배경음 설정")]
-    public AudioClip backgroundMusic;
+    public List<AudioClip> bgmPlaylist; // 여러 개의 배경음악 리스트
     [Range(0f, 1f)] public float bgmVolume = 0.08f;
+    [Tooltip("배경음 전환 간격(초)")] public float bgmChangeInterval = 120f;
     private AudioSource bgmSource;
+    private int currentBgmIndex = 0;
+    private float bgmTimer = 0f;
 
     [Header("효과음 설정")]
     public AudioClip jumpSound;
@@ -16,7 +20,7 @@ public class AudioManager : MonoBehaviour
     [Range(0f, 1f)] public float sfxVolume = 0.3f;
     private AudioSource sfxSource;
 
-    private bool isGamePlaying = false; // 게임 플레이 상태 추적
+    private bool isGamePlaying = false;
 
     private void Awake()
     {
@@ -31,34 +35,58 @@ public class AudioManager : MonoBehaviour
             return;
         }
 
-        // 오디오 소스 초기화
         bgmSource = gameObject.AddComponent<AudioSource>();
         sfxSource = gameObject.AddComponent<AudioSource>();
-
-        // 초기 배경음 설정 (재생은 하지 않음)
-        SetupBGM();
     }
 
-    private void SetupBGM()
+    private void Update()
     {
-        bgmSource.clip = backgroundMusic;
-        bgmSource.volume = bgmVolume;
-        bgmSource.loop = true;
-        // Awake에서 바로 재생하지 않음
+        if (isGamePlaying && bgmPlaylist.Count > 1)
+        {
+            UpdateBGMPlayback();
+        }
     }
 
-    // 게임 시작 시 호출할 메서드
+    private void UpdateBGMPlayback()
+    {
+        bgmTimer += Time.deltaTime;
+
+        // 현재 음악 재생 시간 체크
+        if (bgmTimer >= bgmChangeInterval || !bgmSource.isPlaying)
+        {
+            PlayNextBGM();
+        }
+    }
+
     public void StartGame()
     {
         isGamePlaying = true;
-        PlayBGM();
+        currentBgmIndex = 0;
+        bgmTimer = 0f;
+        PlayBGM(bgmPlaylist[currentBgmIndex]);
     }
 
-    // 게임 종료 시 호출할 메서드
     public void EndGame()
     {
         isGamePlaying = false;
         StopBGM();
+    }
+
+    private void PlayNextBGM()
+    {
+        currentBgmIndex = (currentBgmIndex + 1) % bgmPlaylist.Count;
+        bgmTimer = 0f;
+        PlayBGM(bgmPlaylist[currentBgmIndex]);
+    }
+
+    private void PlayBGM(AudioClip clip)
+    {
+        if (clip == null || !isGamePlaying) return;
+
+        bgmSource.clip = clip;
+        bgmSource.volume = bgmVolume;
+        bgmSource.loop = true;
+        bgmSource.Play();
     }
 
     #region 효과음 재생 메서드
@@ -75,7 +103,7 @@ public class AudioManager : MonoBehaviour
     public void PlayGameOverSound()
     {
         PlaySFX(gameOverSound);
-        EndGame(); // 게임오버 시 배경음 정지
+        EndGame();
     }
     #endregion
 
@@ -88,14 +116,6 @@ public class AudioManager : MonoBehaviour
     }
 
     #region 배경음 제어
-    public void PlayBGM()
-    {
-        if (!bgmSource.isPlaying && isGamePlaying)
-        {
-            bgmSource.Play();
-        }
-    }
-
     public void StopBGM()
     {
         bgmSource.Stop();
@@ -117,7 +137,6 @@ public class AudioManager : MonoBehaviour
     {
         bgmVolume = Mathf.Clamp01(volume);
         bgmSource.volume = bgmVolume;
-
         PlayerPrefs.SetFloat("BGMVolume", bgmVolume);
         PlayerPrefs.Save();
     }
@@ -125,9 +144,19 @@ public class AudioManager : MonoBehaviour
     public void SetSFXVolume(float volume)
     {
         sfxVolume = Mathf.Clamp01(volume);
-
         PlayerPrefs.SetFloat("SFXVolume", sfxVolume);
         PlayerPrefs.Save();
+    }
+    #endregion
+
+    #region 상황별 음악 전환 (선택적)
+    public void ChangeBGMForSituation(int situationIndex)
+    {
+        if (situationIndex >= 0 && situationIndex < bgmPlaylist.Count)
+        {
+            currentBgmIndex = situationIndex;
+            PlayBGM(bgmPlaylist[currentBgmIndex]);
+        }
     }
     #endregion
 }
