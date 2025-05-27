@@ -358,12 +358,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddb2351cb046a7a49a11cd6304ffa4e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bgmClip: {fileID: 8300000, guid: ccb8cb0480f918640bd3bbc285ebf53e, type: 3}
+  backgroundMusic: {fileID: 8300000, guid: ccb8cb0480f918640bd3bbc285ebf53e, type: 3}
   bgmVolume: 0.5
-  sfxClips:
-  - {fileID: 8300000, guid: 073df205a3ca01a45a9421774e210534, type: 3}
-  - {fileID: 8300000, guid: d065167cebb04874b95faec540f6cebb, type: 3}
-  - {fileID: 8300000, guid: 3dfeb8926fc737344a1b98aac72e97bb, type: 3}
+  jumpSound: {fileID: 8300000, guid: 073df205a3ca01a45a9421774e210534, type: 3}
+  coinSound: {fileID: 8300000, guid: d065167cebb04874b95faec540f6cebb, type: 3}
+  gameOverSound: {fileID: 8300000, guid: 3dfeb8926fc737344a1b98aac72e97bb, type: 3}
   sfxVolume: 0.5
 --- !u!1 &910278156
 GameObject:
