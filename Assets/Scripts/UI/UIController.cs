@@ -19,51 +19,55 @@ public class UIController : MonoBehaviour
     {
         Instance = this;
     }
-    public void OnClickStart()
+   
+    public void ShowStartUI(bool active)
     {
-        if (gameStarted) return;
-        
-        gameStarted = true;
-        startPanel.SetActive(false);
-        Time.timeScale = 1f;
-        
+        startPanel.SetActive(active);
     }
 
-    private void Start()
+    public void ShowStopUI()
     {
-        Time.timeScale = 0f;
-        stopPanel.SetActive(false);
-    }
-
-    public void OnClickStop()
-    {
-        Time.timeScale = 0f;
-        isStopping = true;
         stopPanel.SetActive(true);
     }
 
-    public void OnClickRestart()
+    public void ShowGameOverUI()
     {
-        Time.timeScale = 1f;
-        isStopping = false;
+        endPanel.SetActive(true);
+    }
+
+    public void RemoveStart()
+    {
+        if (startPanel != null)
+        {
+            startPanel.SetActive(false);
+        }
+    }
+
+    public void RemoveStop()
+    {
         stopPanel.SetActive(false);
     }
     
-    public void OnClickExit()
+    public void OnClickStartButton()
     {
-       //시작화면으로 돌아가기
-       
+        GameManager.Instance.StartGame();
+        RemoveStart();
     }
 
-    public void Reset()
+    public void OnClickStopButton()
     {
-        
+        GameManager.Instance.StopGame();
+        ShowStopUI();
     }
 
-    public void GameOver()
+    public void OnClickResumeButton()
     {
-        gameOver = true;
-        endPanel.SetActive(true);
+        RemoveStop();
+        GameManager.Instance.ResumeGame();
     }
-    
+
+    public void OnClickRestartButton()
+    {
+        GameManager.Instance.RestartGame();
+    }
 }
