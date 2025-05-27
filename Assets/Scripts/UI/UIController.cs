@@ -55,7 +55,12 @@ public class UIController : MonoBehaviour
        
     }
 
-    public  void GameOver()
+    public void Reset()
+    {
+        
+    }
+
+    public void GameOver()
     {
         gameOver = true;
         endPanel.SetActive(true);

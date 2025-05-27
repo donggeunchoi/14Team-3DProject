@@ -65,5 +65,20 @@ public class UIManager : MonoBehaviour
         comboText.text = newCombo.ToString();
     }
 
-    
+    public void ResetUI()
+    {
+        score = 0;
+        combo = 0;
+        
+        UpdateCombo(combo);
+        UpdateScore(score);
+
+        if (timeUI != null)
+        {
+            timeUI.ResetTime();
+        }
+        
+        Debug.Log("리셋 완료");
+    }
+
 }
