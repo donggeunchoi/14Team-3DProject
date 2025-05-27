@@ -4,12 +4,12 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance { get; private set; }
 
-    [Header("¹è°æÀ½ ¼³Á¤")]
+    [Header("ë°°ê²½ìŒ ì„¤ì •")]
     public AudioClip backgroundMusic;
     [Range(0f, 1f)] public float bgmVolume = 0.08f;
     private AudioSource bgmSource;
 
-    [Header("È¿°úÀ½ ¼³Á¤")]
+    [Header("íš¨ê³¼ìŒ ì„¤ì •")]
     public AudioClip jumpSound;
     public AudioClip coinSound;
     public AudioClip gameOverSound;
@@ -30,11 +30,11 @@ public class AudioManager : MonoBehaviour
             return;
         }
 
-        // ¿Àµğ¿À ¼Ò½º ÃÊ±âÈ­
+        // ì˜¤ë””ì˜¤ ì†ŒìŠ¤ ì´ˆê¸°í™”
         bgmSource = gameObject.AddComponent<AudioSource>();
         sfxSource = gameObject.AddComponent<AudioSource>();
 
-        // ¹è°æÀ½ ¼³Á¤
+        // ë°°ê²½ìŒ ì„¤ì •
         SetupBGM();
     }
 
@@ -46,7 +46,7 @@ public class AudioManager : MonoBehaviour
         bgmSource.Play();
     }
 
-    #region È¿°úÀ½ Àç»ı ¸Ş¼­µå
+    #region íš¨ê³¼ìŒ ì¬ìƒ ë©”ì„œë“œ
     public void PlayJumpSound()
     {
         PlaySFX(jumpSound);
@@ -60,7 +60,7 @@ public class AudioManager : MonoBehaviour
     public void PlayGameOverSound()
     {
         PlaySFX(gameOverSound);
-        StopBGM(); // °ÔÀÓ¿À¹ö ½Ã ¹è°æÀ½ Á¤Áö
+        StopBGM(); // ê²Œì„ì˜¤ë²„ ì‹œ ë°°ê²½ìŒ ì •ì§€
     }
     #endregion
 
@@ -72,7 +72,7 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    #region ¹è°æÀ½ Á¦¾î
+    #region ë°°ê²½ìŒ ì œì–´
     public void PlayBGM()
     {
         if (!bgmSource.isPlaying)
@@ -97,7 +97,7 @@ public class AudioManager : MonoBehaviour
     }
     #endregion
 
-    #region º¼·ı Á¶Àı
+    #region ë³¼ë¥¨ ì¡°ì ˆ
     public void SetBGMVolume(float volume)
     {
         bgmVolume = Mathf.Clamp01(volume);
