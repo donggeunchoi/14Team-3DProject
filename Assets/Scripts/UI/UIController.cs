@@ -7,10 +7,18 @@ public class UIController : MonoBehaviour
 {
     public GameObject startPanel;
     public GameObject stopPanel;
+    public GameObject endPanel;
     
     private bool gameStarted = false;
     private bool isStopping = false;
+    private bool gameOver = false;
+    
+    public static UIController Instance { get; private set; }
 
+    private void Awake()
+    {
+        Instance = this;
+    }
     public void OnClickStart()
     {
         if (gameStarted) return;
@@ -45,6 +53,12 @@ public class UIController : MonoBehaviour
     {
        //시작화면으로 돌아가기
        
+    }
+
+    public  void GameOver()
+    {
+        gameOver = true;
+        endPanel.SetActive(true);
     }
     
 }
