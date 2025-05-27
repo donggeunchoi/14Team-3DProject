@@ -6,14 +6,14 @@ public class AudioManager : MonoBehaviour
 
     [Header("배경음 설정")]
     public AudioClip backgroundMusic;
-    [Range(0f, 1f)] public float bgmVolume = 0.5f;
+    [Range(0f, 1f)] public float bgmVolume = 0.08f;
     private AudioSource bgmSource;
 
     [Header("효과음 설정")]
     public AudioClip jumpSound;
     public AudioClip coinSound;
     public AudioClip gameOverSound;
-    [Range(0f, 1f)] public float sfxVolume = 0.7f;
+    [Range(0f, 1f)] public float sfxVolume = 0.3f;
     private AudioSource sfxSource;
 
     private void Awake()
