@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3244177176398105168}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Building
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 6269392431151098550}
   - component: {fileID: 758150044894381935}
   - component: {fileID: 3307122704673230979}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: tile (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -149,7 +149,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8668253273687299425}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SideRoad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -203,7 +203,7 @@ GameObject:
   - component: {fileID: 6259389540824478114}
   - component: {fileID: 2513234829273788179}
   - component: {fileID: 5542111612698611579}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: building_under (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -308,7 +308,7 @@ GameObject:
   - component: {fileID: 6243076316663330066}
   - component: {fileID: 4908186429658231165}
   - component: {fileID: 6856398625343839082}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: tile (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -459,7 +459,7 @@ GameObject:
   - component: {fileID: 282360432753004321}
   - component: {fileID: 9220305601723148732}
   - component: {fileID: 3844904925293330021}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: tile (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -564,7 +564,7 @@ GameObject:
   - component: {fileID: 1265469920524585743}
   - component: {fileID: 4910399928835764533}
   - component: {fileID: 7524096281130130565}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: building_under (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -669,7 +669,7 @@ GameObject:
   - component: {fileID: 3320883140780623382}
   - component: {fileID: 8702833046054208918}
   - component: {fileID: 2752391955336406912}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: tile (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -774,7 +774,7 @@ GameObject:
   - component: {fileID: 5572690391969036880}
   - component: {fileID: 7302552748342821859}
   - component: {fileID: 5354740846125250062}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: building_under (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -877,7 +877,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4041267567437338108}
   - component: {fileID: 573891217397250755}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Road_Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -932,7 +932,7 @@ GameObject:
   - component: {fileID: 5126037833971573406}
   - component: {fileID: 6627448925525700275}
   - component: {fileID: 4628666924103638208}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: tile (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1037,7 +1037,7 @@ GameObject:
   - component: {fileID: 7736279074342062887}
   - component: {fileID: 6913121487579341373}
   - component: {fileID: 1287469880097528167}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: tile (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1142,7 +1142,7 @@ GameObject:
   - component: {fileID: 7891826418660475225}
   - component: {fileID: 8967899493410518224}
   - component: {fileID: 59371028393255720}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: building_under (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1247,7 +1247,7 @@ GameObject:
   - component: {fileID: 5072927097433051138}
   - component: {fileID: 3836047039499628361}
   - component: {fileID: 4055318132181653008}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: tile (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1352,7 +1352,7 @@ GameObject:
   - component: {fileID: 7153655585278768296}
   - component: {fileID: 1519985200390269923}
   - component: {fileID: 6417789626234821847}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: building_under (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1454,7 +1454,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2352324628908000852}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Map_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1493,7 +1493,7 @@ GameObject:
   - component: {fileID: 5109391617765429819}
   - component: {fileID: 1867208474110007793}
   - component: {fileID: 6604144144499271390}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: building_under (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1598,7 +1598,7 @@ GameObject:
   - component: {fileID: 1593946090960780538}
   - component: {fileID: 8210166775477655275}
   - component: {fileID: 3989374986171514964}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: building_under (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1703,7 +1703,7 @@ GameObject:
   - component: {fileID: 6759359225920184308}
   - component: {fileID: 6758198262671834134}
   - component: {fileID: 6728129760695889662}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: building_under (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1808,7 +1808,7 @@ GameObject:
   - component: {fileID: 8163733459650325763}
   - component: {fileID: 5186544912459213001}
   - component: {fileID: 7214309766945950903}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: tile (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1913,7 +1913,7 @@ GameObject:
   - component: {fileID: 6822134052733948542}
   - component: {fileID: 2133621320276492910}
   - component: {fileID: 7379980897913619799}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: tile (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2018,7 +2018,7 @@ GameObject:
   - component: {fileID: 1471787982886180003}
   - component: {fileID: 2091650754951832932}
   - component: {fileID: 7003113324650935679}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: building_under
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2123,7 +2123,7 @@ GameObject:
   - component: {fileID: 149090861732431799}
   - component: {fileID: 8772105390721446640}
   - component: {fileID: 6758115832278380218}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: building_under (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2228,7 +2228,7 @@ GameObject:
   - component: {fileID: 9003926094515955109}
   - component: {fileID: 2956265039042204880}
   - component: {fileID: 348611448903670326}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: tile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2584,6 +2584,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 4ceb868a4825b44d29372d1235e8ca99, type: 3}
       propertyPath: m_Name
       value: building-a
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4ceb868a4825b44d29372d1235e8ca99, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3210,6 +3214,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: building-h
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7b2ffa7db18ab4f9e80eb5c1319c5b54, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3754,6 +3762,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: ec91a2ede6395482db949fc514132e1d, type: 3}
       propertyPath: m_Name
       value: light-square
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ec91a2ede6395482db949fc514132e1d, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4366,6 +4378,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: building-a
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4ceb868a4825b44d29372d1235e8ca99, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4427,6 +4443,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: d47e0d5372184416bb40ce3cad7d9e2d, type: 3}
       propertyPath: m_Name
       value: building-skyscraper-a
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d47e0d5372184416bb40ce3cad7d9e2d, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
