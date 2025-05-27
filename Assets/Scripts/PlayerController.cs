@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using UnityEngine;
 using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
@@ -23,6 +24,7 @@ public class PlayerController : MonoBehaviour
     private float _originalColldierHeight;
     private Vector3 _originalColliderCenter;
     private CapsuleCollider _capsuleCollider;
+    private Animator _animator;
     [HideInInspector] public bool canLook = true;
 
     private Rigidbody _rigidbody;
@@ -32,6 +34,7 @@ public class PlayerController : MonoBehaviour
     {
         _rigidbody = GetComponent<Rigidbody>();
         _capsuleCollider = GetComponent<CapsuleCollider>();
+        _animator = GetComponentInChildren<Animator>();
         _originalColldierHeight = _capsuleCollider.height;
         _originalColliderCenter = _capsuleCollider.center;
         
@@ -72,9 +75,12 @@ public class PlayerController : MonoBehaviour
     
     public void OnJumpInput(InputAction.CallbackContext context)
     {
+        
         if (context.phase == InputActionPhase.Started && IsGrounded())
         {
+            
             _rigidbody.AddForce(Vector2.up * jumpForce, ForceMode.Impulse);
+            _animator.SetTrigger("Jump");
         }
     }
 
@@ -99,27 +105,18 @@ public class PlayerController : MonoBehaviour
         if (context.phase == InputActionPhase.Started && IsGrounded() && isRolling == false)
         {
             Roll();
+            _animator.SetTrigger("Roll");
         }
     }
    
     bool IsGrounded()
     {
-        Ray[] rays = new Ray[4]
-        {
-            new Ray(transform.position + (transform.forward * 0.2f) + (-transform.up * 0.2f), Vector3.down),
-            new Ray(transform.position + (-transform.forward * 0.2f) + (-transform.up * 0.2f), Vector3.down),
-            new Ray(transform.position + (transform.right * 0.2f) + (-transform.up * 0.2f), Vector3.down),
-            new Ray(transform.position + (-transform.right * 0.2f) + (-transform.up * 0.2f), Vector3.down)
-        };
-        for(int i = 0; i < rays.Length; i++)
-        {
-            if (Physics.Raycast(rays[i], 1f, groundLayerMask))
-            {
-                return true;
-            }
-        }
-
-        return false;
+        float checkDistance = _capsuleCollider.radius + 0.1f;
+        Vector3 origin = transform.position
+            +_capsuleCollider.center
+            -Vector3.up *(_capsuleCollider.height / 2 - _capsuleCollider.radius);
+        
+        return Physics.Raycast(origin,Vector3.down,checkDistance,groundLayerMask);
     }
 
     private IEnumerator Roll()
