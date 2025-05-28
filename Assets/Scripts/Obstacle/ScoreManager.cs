@@ -39,6 +39,7 @@ public class ScoreManager : MonoBehaviour
     public void AddCombo(int combo)
     {
         currnetCombo += combo;
+        Debug.Log($" 컴보: {currnetCombo}");
         if (UIManager.Instance != null)
         {
             UIManager.Instance.UpdateCombo(currnetCombo);
