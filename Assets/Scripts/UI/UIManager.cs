@@ -10,12 +10,14 @@ public class UIManager : MonoBehaviour
     [Header("Combo & Score")]
     public TextMeshProUGUI comboText;
     public TextMeshProUGUI scoreText;
+  
 
     [Header("Time")] 
     public TimeUI timeUI;
 
     private int score = 0;
     private int combo = 0;
+  
 
     private void Awake()
     {
