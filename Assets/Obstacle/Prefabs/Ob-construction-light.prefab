@@ -26,7 +26,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e166cd97f81ff4c7d8ad3a3de505f943, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e166cd97f81ff4c7d8ad3a3de505f943, type: 3}
       propertyPath: m_LocalPosition.z
@@ -151,7 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3344462f91640c4bb3fe4db8203cdc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ObstacleSpeed: 25
+  obstacleSpeed: 25
 --- !u!1001 &6441689111198316536
 PrefabInstance:
   m_ObjectHideFlags: 0

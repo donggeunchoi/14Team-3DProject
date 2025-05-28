@@ -28,6 +28,8 @@ public class ObstacleTest : MonoBehaviour
     private Queue<GameObject> obstaclePool = new Queue<GameObject>();
     private Queue<GameObject> activeObstacles = new Queue<GameObject>();
 
+    // 풀에서 순서대로 뽑는 인덱스
+    private int currentPrefabIndex = 0;
     // 재활용 중복 실행 방지
     private bool isRecycling = false;
 
@@ -40,7 +42,7 @@ public class ObstacleTest : MonoBehaviour
         // 비활성화 상태로 장애물들을 생성 후 풀에 넣음
         for (int i = 0; i < firstSpawnCount; i++)
         {
-            GameObject obj = Instantiate(GetRandomPrefab());
+            GameObject obj = Instantiate(GetNextPrefab());
             obj.SetActive(false);
             obstaclePool.Enqueue(obj);
         }
@@ -112,13 +114,16 @@ public class ObstacleTest : MonoBehaviour
         isRecycling = false;
     }
     /// <summary>
-    /// 장애물 프리팹에서 랜덤으로 하나 가져오는 함수
+    /// 장애물 프리팹에서 순서대로 가져오는 함수
     /// </summary>
     /// <returns></returns>
-    GameObject GetRandomPrefab()
+    GameObject GetNextPrefab()
     {
-        int index = Random.Range(0, obstaclePrefabs.Count);
-        return obstaclePrefabs[index];
+        // 현재 인덱스 값을 가져오고
+        GameObject prefab = obstaclePrefabs[currentPrefabIndex];
+        // 순환하도록 인덱스 증가
+        currentPrefabIndex = (currentPrefabIndex + 1) % obstaclePrefabs.Count;
+        return prefab;
     }
     /// <summary>
     /// 장애물 비활성화 및 풀에 넣는 함수

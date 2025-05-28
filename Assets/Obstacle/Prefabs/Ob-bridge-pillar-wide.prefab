@@ -96,7 +96,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e6604d3219f3a4162ad84d39cd2cfe36, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e6604d3219f3a4162ad84d39cd2cfe36, type: 3}
       propertyPath: m_LocalPosition.z
@@ -216,7 +216,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3344462f91640c4bb3fe4db8203cdc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ObstacleSpeed: 25
+  obstacleSpeed: 25
 --- !u!4 &7739686371461594152 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e6604d3219f3a4162ad84d39cd2cfe36, type: 3}
