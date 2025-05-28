@@ -71,10 +71,11 @@ public class Obstacle : MonoBehaviour
 
     IEnumerator RandomSpawnLongObstacle(int laneIdx) // 랜덤으로 긴 장애물 소환
     {
+        // 장애물 모델링 중 하나를 랜덤으로 선택
+        int randObstaclePrefabs = Random.Range(0, longObstaclePrefab.Length);
+
         for (int i = 0; i < obstacleCount; i++) // 장애물을 연속으로 생성하는 조건문
         {
-            // 장애물 모델링 중 하나를 랜덤으로 선택
-            int randObstaclePrefabs = Random.Range(0, longObstaclePrefab.Length);
             // 위 코드에서 뽑힌 장애물을 선택된 장애물로 지정
             GameObject selectedObstaclePrefabs = longObstaclePrefab[randObstaclePrefabs];
             // 장애물 생성 x좌표 가져오기 - 레인 별로 독립적으로 장애물 소환
@@ -88,9 +89,8 @@ public class Obstacle : MonoBehaviour
             // 생성된 장애물 오브젝트들이 ObstacleSpawner를 부모 오브젝트로 설정 - hierarchy 창을 정리하는 용도
             newObstacle.transform.parent = this.transform;
 
-            // 각 장애물 사이의 간격을 조절
             ObstacleMove obstacleMove = newObstacle.GetComponent<ObstacleMove>();
-            
+
             // 소환 시간 = 거리 / 속도 
             float LongSpawnDelay = betweenObstacle / obstacleMove.obstacleSpeed;
 
