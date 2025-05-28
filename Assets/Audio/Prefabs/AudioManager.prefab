@@ -44,8 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8ca0132545bb0d408be75afa65b559c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backgroundMusic: {fileID: 8300000, guid: 87f6555033cb962419c3f3cf649a9ea2, type: 3}
+  bgmPlaylist:
+  - {fileID: 8300000, guid: 87f6555033cb962419c3f3cf649a9ea2, type: 3}
+  - {fileID: 8300000, guid: 0878d36694e1421419cdade4d888b176, type: 3}
   bgmVolume: 0.1
+  bgmChangeInterval: 100
   jumpSound: {fileID: 8300000, guid: e43e0a1bb4029604887eb91d71350765, type: 3}
   coinSound: {fileID: 8300000, guid: 9add554c6bca38f44b2d3c3860d1d5b5, type: 3}
   gameOverSound: {fileID: 8300000, guid: 4d564ef5fedbb5a48adb6bf281b20ef7, type: 3}
