@@ -30,6 +30,7 @@ public class UIManager : MonoBehaviour
         }
     }
     
+    //시작할때 초기화 시키기
     void Start()
     {
         UpdateScore(0);
@@ -37,24 +38,7 @@ public class UIManager : MonoBehaviour
         timeUI.ResetTime();
     }
 
-    public void AddScore(int amount)
-    {
-        score += amount;
-        UpdateScore(score);
-    }
-
-    public void IncreaseCombo()
-    {
-        combo++;
-        UpdateCombo(combo);
-    }
-
-    public void ResetCombo()
-    {
-        combo = 0;
-        UpdateCombo(combo);
-    }
-
+    //업데이트 점수와 콤보
     public void UpdateScore(int newScore)
     {
         scoreText.text = newScore.ToString();
@@ -64,7 +48,8 @@ public class UIManager : MonoBehaviour
     {
         comboText.text = newCombo.ToString();
     }
-
+    
+    //초기화 시키는 메서드 
     public void ResetUI()
     {
         score = 0;
@@ -80,5 +65,7 @@ public class UIManager : MonoBehaviour
         
         Debug.Log("리셋 완료");
     }
+
+  
 
 }
