@@ -1301,14 +1301,13 @@ MonoBehaviour:
   - {fileID: 8665277427336616189, guid: 80821e1eb3dd17c4d9e38617be1f575e, type: 3}
   - {fileID: 3644546378239526850, guid: 82a4cee2741d0dc4eba3e7f0c6ca7f1c, type: 3}
   - {fileID: 1797683688515155284, guid: a11fb080dbb0fb348815b2d9acc30783, type: 3}
-  spawnXPosition:
-  - -2.6
-  - 0
-  - 2.6
+  longObstaclePrefab: []
   spawnYPosition: 0.1
   spawnZPosition: 50
   minSpawnDelay: 2
   maxSpawnDelay: 5
+  obstacleCount: 0
+  betweenObstacle: 0
 --- !u!4 &473434142
 Transform:
   m_ObjectHideFlags: 0
@@ -2224,6 +2223,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1695524943332993172, guid: 0761de7a63cc2534ea6e35f9bfa0d94b, type: 3}
+      propertyPath: bgmVolume
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 2108586036787034757, guid: 0761de7a63cc2534ea6e35f9bfa0d94b, type: 3}
       propertyPath: m_Name
       value: AudioManager
