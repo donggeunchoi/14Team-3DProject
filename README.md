@@ -20,7 +20,7 @@ Unity의 기초 기능을 활용한 게임 로직 및 UI 연동 학습
 ## 🛠 사용한 기술 및 시스템
 
 
-## ✅ Unity 기반 시스템 구성
+# ✅ Unity 기반 시스템 구성
 시스템 구성 요소	사용 기술 / 설명
 플레이어 (Player)	Rigidbody2D + Collider2D / 키 입력 제어 / 방향 반전 처리
 
@@ -41,7 +41,7 @@ UI (사용자 인터페이스)	TextMeshPro + Canvas / 점수, 콤보, 정지·�
 ## 🧩 트러블 슈팅 (문제 해결 경험)
 
 
-# 1. UI 버튼이 2회차부터 작동하지 않는 문제
+### 1. UI 버튼이 2회차부터 작동하지 않는 문제
 원인: DontDestroyOnLoad로 인해 GameManager와 UIManager가 씬 전환 시 중복 생성됨
 
 해결: RestartGame() 내에서 기존 매니저 객체 수동 파괴 → 재생성 유도
@@ -62,12 +62,12 @@ if (GameManager.Instance != null && GameManager.Instance != this)
 SceneManager.LoadScene("Map_Asset");
 
 
-# 2. 점수 및 콤보가 씬 리로드 후 초기화되지 않음
+### 2. 점수 및 콤보가 씬 리로드 후 초기화되지 않음
 원인: UIManager의 ResetUI()가 실행되었으나 실제 필드 값 초기화 누락
 
 해결: ResetUI() 내 score, combo 초기화 및 Update 호출 확실히 처리
 
-# 3. 게임 재시작 시 UI, 상태관리, 버튼 재연결이 꼬이는 문제
+### 3. 게임 재시작 시 UI, 상태관리, 버튼 재연결이 꼬이는 문제
 원인: GameManager/Singleton 패턴으로 인한 중복, 타이밍 꼬임
 
 해결: 싱글톤 유지 최소화, 필요한 경우 DontDestroyOnLoad 제거 후 재등록
