@@ -21,7 +21,7 @@ Unity의 기초 기능을 활용한 게임 로직 및 UI 연동 학습
 ## 🛠 사용한 기술 및 시스템
 
 
-# ✅ Unity 기반 시스템 구성
+### ✅ Unity 기반 시스템 구성
 시스템 구성 요소	사용 기술 / 설명
 플레이어 (Player)	Rigidbody2D + Collider2D / 키 입력 제어 / 방향 반전 처리
 
@@ -75,6 +75,8 @@ SceneManager.LoadScene("Map_Asset");
 
 ## 👤 만든이
 이름	역할
+
+
 최동근 UI/게임매니저 구조 설계, 트러블슈팅 정리,리드미 작성
 
 
