@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748171, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -306,7 +306,7 @@ MonoBehaviour:
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 219894423}
-        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_TargetAssemblyTypeName: PlayerTest, Assembly-CSharp
         m_MethodName: OnMove
         m_Mode: 0
         m_Arguments:
@@ -337,7 +337,7 @@ MonoBehaviour:
     m_ActionName: Player/Jump[/Keyboard/space]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: TestPlayer
+  m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!114 &219894423
@@ -536,19 +536,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstaclePrefab:
-  - {fileID: 6927436808814208658, guid: ae1ff2428dcbfdd439c3885f7a402ef2, type: 3}
-  - {fileID: 4689951828064882192, guid: 744e298f3d4c7144cb5be1135b7d5132, type: 3}
   - {fileID: 8665277427336616189, guid: 80821e1eb3dd17c4d9e38617be1f575e, type: 3}
   - {fileID: 3644546378239526850, guid: 82a4cee2741d0dc4eba3e7f0c6ca7f1c, type: 3}
   - {fileID: 1797683688515155284, guid: a11fb080dbb0fb348815b2d9acc30783, type: 3}
-  spawnXPosition:
-  - -2.6
-  - 0
-  - 2.6
+  longObstaclePrefab:
+  - {fileID: 6927436808814208658, guid: ae1ff2428dcbfdd439c3885f7a402ef2, type: 3}
+  - {fileID: 4689951828064882192, guid: 744e298f3d4c7144cb5be1135b7d5132, type: 3}
   spawnYPosition: 0.1
-  spawnZPosition: 50
+  spawnZPosition: 60
   minSpawnDelay: 2
   maxSpawnDelay: 5
+  obstacleCount: 10
+  betweenObstacle: 2
 --- !u!4 &1762732618
 Transform:
   m_ObjectHideFlags: 0
@@ -769,6 +768,6 @@ SceneRoots:
   m_Roots:
   - {fileID: 1972382391}
   - {fileID: 1930160978}
-  - {fileID: 219894421}
   - {fileID: 1762732618}
   - {fileID: 80171774}
+  - {fileID: 219894421}
