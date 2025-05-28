@@ -11,7 +11,7 @@ public class ObstacleMove : MonoBehaviour
     {
         _rigidbody = GetComponent<Rigidbody>();
     }
-    
+
     // Update is called once per frame
     void FixedUpdate()
     {

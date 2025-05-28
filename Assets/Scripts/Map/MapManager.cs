@@ -10,7 +10,7 @@ public class MapManager : MonoBehaviour
     [SerializeField] private List<GameObject> mapPrefabs;
     // 처음 배치할 맵 조각 개수
     [SerializeField] private int firstSpawnCount = 10;
-    [SerializeField] private ObstacleTest _obstacleTest;
+    // [SerializeField] private ObstacleTest _obstacleTest;
 
     // 각 맵 조각의 길이 (z축 기준)
     private float mapLength = 10f;
@@ -41,7 +41,7 @@ public class MapManager : MonoBehaviour
         if (player.position.z > nextSpawnZ - triggerOffsetZ && !isRecycling)
         {
             StartCoroutine(RecycleMapPieceCoroutine());
-            _obstacleTest.SpawnObstaclesAtZ(nextSpawnZ);
+            // 장애물도 같이 생성되게 할 예정
         }
     }
 
