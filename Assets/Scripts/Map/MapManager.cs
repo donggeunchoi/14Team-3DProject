@@ -10,7 +10,6 @@ public class MapManager : MonoBehaviour
     [SerializeField] private List<GameObject> mapPrefabs;
     // 처음 배치할 맵 조각 개수
     [SerializeField] private int firstSpawnCount = 10;
-    // [SerializeField] private ObstacleTest _obstacleTest;
 
     // 각 맵 조각의 길이 (z축 기준)
     private float mapLength = 10f;
@@ -25,13 +24,25 @@ public class MapManager : MonoBehaviour
 
     void Start()
     {
-        nextSpawnZ = 0;
+        nextSpawnZ = 0f;
         triggerOffsetZ = firstSpawnCount * mapLength * 0.75f; // 생성된 구간의 75% 다음 맵 조각 준비
 
         // 처음 맵 조각 배치
         for (int i = 0; i < firstSpawnCount; i++)
         {
-            SpawnNextMapPiece();
+            // 랜덤으로 맵 프리팹 하나 선택
+            int index = Random.Range(0, mapPrefabs.Count);
+            GameObject mapChunk = Instantiate(mapPrefabs[index]);
+
+            // 해당 오브젝트를 (0,0,nextSpawnZ)에 배치
+            mapChunk.transform.position = new Vector3(0f, 0f, nextSpawnZ);
+            mapChunk.SetActive(true);
+
+            // 풀에 넣기
+            mapPool.Enqueue(mapChunk);
+
+            // 다음 맵 z 위치 계산
+            nextSpawnZ += mapLength;
         }
     }
 
@@ -40,8 +51,7 @@ public class MapManager : MonoBehaviour
         // 플레이어가 다음 맵 조각 기준점에 가까워지면 맵 재배치
         if (player.position.z > nextSpawnZ - triggerOffsetZ && !isRecycling)
         {
-            StartCoroutine(RecycleMapPieceCoroutine());
-            // 장애물도 같이 생성되게 할 예정
+            RecycleMapPiece();
         }
     }
 
@@ -54,28 +64,27 @@ public class MapManager : MonoBehaviour
         new Vector3(0, 0, nextSpawnZ), Quaternion.identity);
 
         mapPool.Enqueue(newMap);
-
         nextSpawnZ += mapLength;
     }
 
     // 기존 맵 조각을 앞으로 이동시켜 재사용
-    IEnumerator RecycleMapPieceCoroutine()
+    private void RecycleMapPiece()
     {
         isRecycling = true;
 
         if (mapPool.Count > 0)
         {
-            // 가장 오래된 맵 꺼냄
+            // 풀에서 가장 앞에 있는 맵 조각 꺼내기
             GameObject oldMap = mapPool.Dequeue();
-            // 앞쪽으로 이동                   
-            oldMap.transform.position = new Vector3(0, 0, nextSpawnZ);
 
-            // 다시 풀에 추가
+            // 오브젝트를 다음 배치 위치로 이동
+            oldMap.transform.position = new Vector3(0f, 0f, nextSpawnZ);
+
+            // 다시 풀큐에 넣기
             mapPool.Enqueue(oldMap);
-            nextSpawnZ += mapLength;
 
-            // 한 프레임 쉬어서 부하를 분산
-            yield return null;
+            // nextSpawnZ 업데이트
+            nextSpawnZ += mapLength;
         }
 
         isRecycling = false;

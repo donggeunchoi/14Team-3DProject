@@ -25,7 +25,7 @@ public class ObstacleMove : MonoBehaviour
         {
             Time.timeScale = 0;
             Debug.Log("장애물과 충돌로 인한 게임정지");
-            UIController.Instance.GameOver();
+            UIController.Instance.ShowGameOverUI();
         }
     }
 }
