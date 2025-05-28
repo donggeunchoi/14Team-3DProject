@@ -5,23 +5,17 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance { get; private set; }
 
-    [Header("게임플레이음악 설정")]
+    [Header("BGM Settings")]
     public List<AudioClip> bgmPlaylist;
-    [Range(0f, 1f)] public float bgmVolume = 0.08f;
-    [Tooltip("게임플레이 음악 전환 간격(초)")] public float bgmChangeInterval = 120f;
-    private AudioSource bgmSource;
-    private int currentBgmIndex = 0;
-    private float bgmTimer = 0f;
-
-    [Header("효과음 설정")]
-    public AudioClip jumpSound;
-    public AudioClip coinSound;
-    public AudioClip gameOverSound;
     public AudioClip gameStartSound;
+    [Range(0f, 1f)] public float bgmVolume = 0.08f;
+    private AudioSource bgmSource;
+
+    [Header("SFX Settings")]
+    public AudioClip jumpSound; // 스페이스바 입력 시 재생될 점프 사운드
+    public AudioClip gameOverSound;
     [Range(0f, 1f)] public float sfxVolume = 0.3f;
     private AudioSource sfxSource;
-
-    private bool isGamePlaying = false;
 
     private void Awake()
     {
@@ -29,90 +23,84 @@ public class AudioManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
+
+            bgmSource = gameObject.AddComponent<AudioSource>();
+            sfxSource = gameObject.AddComponent<AudioSource>();
+
+            // 볼륨 설정 로드
+            bgmVolume = PlayerPrefs.GetFloat("BGMVolume", bgmVolume);
+            sfxVolume = PlayerPrefs.GetFloat("SFXVolume", sfxVolume);
         }
         else
         {
             Destroy(gameObject);
-            return;
         }
-
-        bgmSource = gameObject.AddComponent<AudioSource>();
-        sfxSource = gameObject.AddComponent<AudioSource>();
-
-        // 볼륨 설정 로드
-        bgmVolume = PlayerPrefs.GetFloat("BGMVolume", bgmVolume);
-        sfxVolume = PlayerPrefs.GetFloat("SFXVolume", sfxVolume);
     }
 
     private void Update()
     {
-        if (isGamePlaying && bgmPlaylist.Count > 1)
+        // 스페이스바 입력 감지
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            UpdateBGMPlayback();
+            PlayJumpSound();
         }
     }
 
     public void StartGameMusic()
     {
-        if (!isGamePlaying)
+        // 시작 효과음 재생
+        if (gameStartSound != null)
         {
-            if (gameStartSound != null)
-            {
-                PlaySFX(gameStartSound);
-                Invoke("PlayFirstBGM", gameStartSound.length);
-            }
-            else
-            {
-                PlayFirstBGM();
-            }
-            isGamePlaying = true;
+            PlaySFX(gameStartSound);
+            Invoke("PlayRandomBGM", gameStartSound.length);
+        }
+        else
+        {
+            PlayRandomBGM();
         }
     }
 
-    private void PlayFirstBGM()
+    private void PlayRandomBGM()
     {
         if (bgmPlaylist.Count == 0) return;
 
-        currentBgmIndex = 0;
-        bgmTimer = 0f;
-        bgmSource.clip = bgmPlaylist[currentBgmIndex];
+        int randomIndex = Random.Range(0, bgmPlaylist.Count);
+        bgmSource.clip = bgmPlaylist[randomIndex];
         bgmSource.volume = bgmVolume;
         bgmSource.loop = true;
         bgmSource.Play();
     }
 
-    private void UpdateBGMPlayback()
+    public void PauseBGM()
     {
-        bgmTimer += Time.deltaTime;
-
-        if (bgmTimer >= bgmChangeInterval || !bgmSource.isPlaying)
+        if (bgmSource.isPlaying)
         {
-            PlayNextBGM();
+            bgmSource.Pause();
         }
     }
 
-    private void PlayNextBGM()
+    public void ResumeBGM()
     {
-        currentBgmIndex = (currentBgmIndex + 1) % bgmPlaylist.Count;
-        bgmTimer = 0f;
-        bgmSource.clip = bgmPlaylist[currentBgmIndex];
-        bgmSource.Play();
+        if (!bgmSource.isPlaying)
+        {
+            bgmSource.UnPause();
+        }
     }
 
-    public void StopGameMusic()
+    public void StopBGM()
     {
-        isGamePlaying = false;
         bgmSource.Stop();
     }
-
-  
-    public void PlayJumpSound() => PlaySFX(jumpSound);
-    public void PlayCoinSound() => PlaySFX(coinSound);
 
     public void PlayGameOverSound()
     {
         PlaySFX(gameOverSound);
-        StopGameMusic();
+        StopBGM();
+    }
+
+    public void PlayJumpSound()
+    {
+        PlaySFX(jumpSound);
     }
 
     private void PlaySFX(AudioClip clip)
@@ -123,7 +111,6 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    
     public void SetBGMVolume(float volume)
     {
         bgmVolume = Mathf.Clamp01(volume);

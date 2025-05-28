@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6185284419505285855}
   - component: {fileID: 1695524943332993172}
+  - component: {fileID: 7549962528817341072}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -47,9 +48,31 @@ MonoBehaviour:
   bgmPlaylist:
   - {fileID: 8300000, guid: 87f6555033cb962419c3f3cf649a9ea2, type: 3}
   - {fileID: 8300000, guid: 0878d36694e1421419cdade4d888b176, type: 3}
-  bgmVolume: 0.1
-  bgmChangeInterval: 100
-  jumpSound: {fileID: 8300000, guid: e43e0a1bb4029604887eb91d71350765, type: 3}
-  coinSound: {fileID: 8300000, guid: 9add554c6bca38f44b2d3c3860d1d5b5, type: 3}
+  - {fileID: 8300000, guid: 62cb2764bea61ba488011f092ef9fd87, type: 3}
+  gameStartSound: {fileID: 0}
+  bgmVolume: 0.17
+  jumpSound: {fileID: 8300000, guid: 1ca9072e0351b1b4d92d8053dfe96016, type: 3}
   gameOverSound: {fileID: 8300000, guid: 4d564ef5fedbb5a48adb6bf281b20ef7, type: 3}
-  sfxVolume: 0.3
+  sfxVolume: 0.15
+--- !u!114 &7549962528817341072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2108586036787034757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2fc27e5a05880146b41b6c6fcab9ee4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 0}
+  comboSounds: []
+  volume: 0.08
+  combo10Sound: {fileID: 8300000, guid: c2307949c61375046a18e0b95160e981, type: 3}
+  combo50Sound: {fileID: 8300000, guid: 0863e3a9ff473e24991ce061f7f8daab, type: 3}
+  combo100Sound: {fileID: 8300000, guid: 50f13fef8be6020429d478c90e1f7f0c, type: 3}
+  specialComboVolume: 0.08
+  comboTimeout: 2
+  maxComboLevel: 100
+  showPopup: 1
