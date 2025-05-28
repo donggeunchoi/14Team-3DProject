@@ -33,7 +33,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Slide",
+                    "name": "Roll",
                     "type": "Button",
                     "id": "7b92b6a9-1591-49e4-a3a4-e04be4009376",
                     "expectedControlType": "Button",
@@ -56,8 +56,41 @@
                 },
                 {
                     "name": "",
+                    "id": "9a586371-9f8f-40df-8f6f-15ddbea91f98",
+                    "path": "<Keyboard>/upArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e56d4dff-8cac-4a6d-855b-572f5f4ef1be",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "f5777b60-ade0-499d-a671-2870dd0ea549",
                     "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MoveLeft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "059d14ed-a561-4dad-b8a5-77fccf0c3145",
+                    "path": "<Keyboard>/leftArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -78,12 +111,34 @@
                 },
                 {
                     "name": "",
-                    "id": "18dd1ad1-3bd5-4efa-a5eb-3933910f022a",
-                    "path": "<Keyboard>/shift",
+                    "id": "0f986e12-6da9-4d72-a2a8-c00fde3db60d",
+                    "path": "<Keyboard>/rightArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Slide",
+                    "action": "MoveRight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "18dd1ad1-3bd5-4efa-a5eb-3933910f022a",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Roll",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "80765e07-8e3e-4953-8fec-ffcf90151915",
+                    "path": "<Keyboard>/downArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Roll",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
