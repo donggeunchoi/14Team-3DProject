@@ -78,18 +78,23 @@ SceneManager.LoadScene("Map_Asset");
 
 
 최동근 UI/게임매니저 구조 설계, 트러블슈팅 정리,리드미 작성
+<https://github.com/donggeunchoi>
 
 
 윤지민 Player,Animation,Camera
+<https://github.com/jjmm-del>
 
 
 정광훈 장애물, 게임오버, 점수시스템
+<https://github.com/JKH201020>
 
 
 정재훈 배경음악, 효과음, 오디오 전반
+<https://github.com/BEEZZLE>
 
 
 김하빈 Map, 전반적인 전반적 코딩기술 담당
+<https://github.com/Habin-Kim>
 
 ## ✅ 실행 방법
 Unity 프로젝트 열기
