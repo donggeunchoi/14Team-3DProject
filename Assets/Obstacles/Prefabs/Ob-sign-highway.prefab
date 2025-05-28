@@ -203,6 +203,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SlidingCollider
       objectReference: {fileID: 0}
+    - target: {fileID: 5845510831992643578, guid: 2a72e4205d8535549b85fcd99ba61aa3, type: 3}
+      propertyPath: m_TagString
+      value: RollingObstacle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -227,7 +231,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3896044612322851755, guid: bf66ec7ec9884d241b2ceb65405d92d1, type: 3}
       propertyPath: m_TagString
-      value: RollingObstacle
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 5971283630517357313, guid: bf66ec7ec9884d241b2ceb65405d92d1, type: 3}
       propertyPath: m_LocalPosition.x
