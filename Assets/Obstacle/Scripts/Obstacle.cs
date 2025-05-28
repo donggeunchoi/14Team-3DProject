@@ -40,6 +40,7 @@ public class Obstacle : MonoBehaviour
 
             if (obstacleType <= 70) // 일반 장애물 소환 - 70% 확률로 소환
             {
+                // 해당 코루틴이 끝날 때까지 대기
                 yield return StartCoroutine(RandomSpawnObstacle(laneIdx));
             }
             else // 긴 장애물 소환 - 30% 확률로 소환
@@ -71,9 +72,10 @@ public class Obstacle : MonoBehaviour
 
     IEnumerator RandomSpawnLongObstacle(int laneIdx) // 랜덤으로 긴 장애물 소환
     {
-        // 장애물 모델링 중 하나를 랜덤으로 선택
+        // 호출되면 장애물 모델링 중 하나를 랜덤으로 선택
         int randObstaclePrefabs = Random.Range(0, longObstaclePrefab.Length);
 
+        // 선택한 모델링으로만 10개의 장애물 소환
         for (int i = 0; i < obstacleCount; i++) // 장애물을 연속으로 생성하는 조건문
         {
             // 위 코드에서 뽑힌 장애물을 선택된 장애물로 지정
@@ -89,6 +91,7 @@ public class Obstacle : MonoBehaviour
             // 생성된 장애물 오브젝트들이 ObstacleSpawner를 부모 오브젝트로 설정 - hierarchy 창을 정리하는 용도
             newObstacle.transform.parent = this.transform;
 
+            // newObstacle에 ObstacleMove가 붙어있으면 스크립트에 대한 참조를 ObstacleMove 변수에 저장
             ObstacleMove obstacleMove = newObstacle.GetComponent<ObstacleMove>();
 
             // 소환 시간 = 거리 / 속도 
