@@ -80,7 +80,7 @@ public class ObstacleTest : MonoBehaviour
         // z축은 다음 생성 위치
         float z = nextSpawnZ;
         // 장애물 위치 설정
-        obstacle.transform.position = new Vector3(x, 0.15f, z);
+        obstacle.transform.position = new Vector3(x, 0f, z);
         obstacle.SetActive(true);
         // 활성 장애물 큐에 추가
         activeObstacles.Enqueue(obstacle);
