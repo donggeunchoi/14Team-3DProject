@@ -464,7 +464,6 @@ MonoBehaviour:
   rollDuration: 1
   slideColliderHeight: 1
   slideColliderCenterY: 0.5
-  isRolling: 0
   canLook: 1
 --- !u!114 &307718340
 MonoBehaviour:
@@ -1703,7 +1702,7 @@ MonoBehaviour:
   minSpawnDelay: 2
   maxSpawnDelay: 5
   obstacleCount: 10
-  betweenObstacle: 2
+  betweenObstacle: 1
 --- !u!4 &1762732618
 Transform:
   m_ObjectHideFlags: 0
