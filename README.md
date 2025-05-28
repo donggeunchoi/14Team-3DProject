@@ -33,9 +33,17 @@ UI (사용자 인터페이스)	TextMeshPro + Canvas / 점수, 콤보, 정지·�
 해결: RestartGame() 내에서 기존 매니저 객체 수동 파괴 → 재생성 유도
 
 if (UIManager.Instance != null) 
+
+
     Destroy(UIManager.Instance.gameObject);
+
+    
 if (GameManager.Instance != null && GameManager.Instance != this) 
+
+
     Destroy(GameManager.Instance.gameObject);
+
+    
     
 SceneManager.LoadScene("Map_Asset");
 
