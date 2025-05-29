@@ -145,6 +145,9 @@ if (GameManager.Instance != null && GameManager.Instance != this)
     
 SceneManager.LoadScene("Map_Asset");
 
+![Uploading image.png…]()
+
+
 
 ### 2. 게임 오버 시 Player의 Dead Animation이 실행되지 않음.
 문제 : 코루틴으로 종료 자체를 애니메이션 종료 이후 시간으로 넘겼을 경우 그 시간 사이에 또 다른 장애물과 부딪히면 종료UI가 실행되지않음
@@ -155,12 +158,16 @@ SceneManager.LoadScene("Map_Asset");
 
 해결법 : Animation Inspector의 UpdateMode를 UnscaledTime으로 설정하여 Time.timeScale의 영향을 받지 않게 하고 Coroutine의 WaitForSecondsRealtime으로 구현
 
+![image](https://github.com/user-attachments/assets/dc7d042c-2fbd-4b04-abb7-d3f7c4a16b9a)
 
 
 ### 3. 장애물이 이동 중 잠깐 멈추거나 완전히 멈춰 버리는 현상
 원인 - 바닥 콜라이더와 장애물 콜라이더가 충돌하고 있었습니다
 
 해결 - Layer Collision Matrix 에서 바닥 레이어와 장애물 레이어의 충돌을 꺼주는 것으로 해결
+
+![image](https://github.com/user-attachments/assets/d0154b69-9277-442b-a2a6-ceff1b17701e)
+
 
 ## 👤 만든이
 이름	역할
