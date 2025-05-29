@@ -735,8 +735,8 @@ MonoBehaviour:
   - 0
   - 2.6
   initialPoolSize: 1
-  spawnZStartOffset: 40
-  spawnIntervalZ: 200
+  spawnZStartOffset: 50
+  spawnIntervalZ: 300
 --- !u!1 &620293183
 GameObject:
   m_ObjectHideFlags: 0
