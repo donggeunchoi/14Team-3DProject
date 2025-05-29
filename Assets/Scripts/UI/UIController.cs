@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UIController : MonoBehaviour
 {
@@ -69,5 +70,10 @@ public class UIController : MonoBehaviour
     public void OnClickRestartButton()
     {
         GameManager.Instance.RestartGame();
+    }
+
+    public void OnClickGameSceneMove()
+    {
+        SceneManager.LoadScene("Map_Asset");
     }
 }
