@@ -16,22 +16,24 @@ public class ObstacleMove : MonoBehaviour
     void FixedUpdate()
     {
         _rigidbody.velocity = Vector3.back * obstacleSpeed; // 장애물 이동속도
-
     }
 
     // 플레이어와 장애물이 충돌하면 게임 정지
-    private void OnCollisionEnter(Collision other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            PlayerCondition playerCondition = other.gameObject.GetComponent<PlayerCondition>();
+            if (!playerCondition.IsInvincible)
+            {
             StartCoroutine(nameof(GameOver));
+            }
         }
         Debug.Log($"[충돌 시작] 시간: {Time.time:F2}  {gameObject.name} vs {other.gameObject.name}  위치: {transform.position}");
     }
 
     IEnumerator GameOver()
     {   
-        
         CharacterManager.Instance.Player.controller.Dead();
         Time.timeScale = 0;
         yield return new WaitForSecondsRealtime(2.28f);
