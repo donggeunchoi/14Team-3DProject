@@ -1,38 +1,46 @@
-using UnityEngine;
-using TMPro;
+ï»¿using UnityEngine;
 
 public class ComboSystem : MonoBehaviour
 {
-   
+    public static ComboSystem Instance { get; private set; }
 
     [Header("Sound Settings")]
     public AudioSource audioSource;
-    public AudioClip[] comboSounds; 
-    [Range(0, 1)] public float volume = 1f;
+    public AudioClip[] comboSounds;
+    [Range(0f, 1f)] public float volume = 1f;
 
     [Header("Special Combo Sounds")]
-    public AudioClip combo10Sound; // 10ÄÞº¸ ´Þ¼º »ç¿îµå
-    public AudioClip combo50Sound; // 50ÄÞº¸ ´Þ¼º »ç¿îµå
-    public AudioClip combo100Sound; // 100ÄÞº¸ ´Þ¼º »ç¿îµå
-    [Range(0, 1)] public float specialComboVolume = 1.2f; // Æ¯¼ö ÄÞº¸ »ç¿îµå º¼·ý
+    public AudioClip combo10Sound;
+    public AudioClip combo50Sound;
+    public AudioClip combo100Sound;
+    [Range(0f, 1f)] public float specialComboVolume = 1f;
 
     [Header("Combo Settings")]
     public float comboTimeout = 2f;
     public int maxComboLevel = 100;
-    public bool showPopup = true;
 
     private int currentCombo = 0;
     private float lastComboTime = 0f;
     private bool isComboActive = false;
 
-    // Æ¯¼ö ÄÞº¸ ´Þ¼º ¿©ºÎ ÃßÀû
     private bool hasPlayed10Combo = false;
     private bool hasPlayed50Combo = false;
     private bool hasPlayed100Combo = false;
 
-    // ÄÞº¸ º¯°æ ½Ã È£ÃâµÉ ÀÌº¥Æ®
-    public delegate void ComboChangedHandler(int newCombo);
-    public event ComboChangedHandler OnComboChanged;
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+            if (audioSource == null)
+                audioSource = gameObject.AddComponent<AudioSource>();
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     private void Update()
     {
@@ -42,89 +50,65 @@ public class ComboSystem : MonoBehaviour
         }
     }
 
-    // ÄÞº¸ Áõ°¡
     public void AddCombo()
     {
         currentCombo++;
         lastComboTime = Time.time;
         isComboActive = true;
 
-        
         PlayComboSound();
-        PlaySpecialComboSound(); // Æ¯¼ö ÄÞº¸ »ç¿îµå Àç»ý
-        
-
-        OnComboChanged?.Invoke(currentCombo);
+        PlaySpecialComboSound();
+        UIManager.Instance?.UpdateCombo(currentCombo);
     }
-
-    // Æ¯¼ö ÄÞº¸ »ç¿îµå Àç»ý
-    private void PlaySpecialComboSound()
-    {
-        if (audioSource == null) return;
-
-        // 10ÄÞº¸ ´Þ¼º
-        if (currentCombo == 10 && !hasPlayed10Combo && combo10Sound != null)
-        {
-            audioSource.PlayOneShot(combo10Sound, specialComboVolume);
-            hasPlayed10Combo = true;
-        }
-        // 50ÄÞº¸ ´Þ¼º
-        else if (currentCombo == 50 && !hasPlayed50Combo && combo50Sound != null)
-        {
-            audioSource.PlayOneShot(combo50Sound, specialComboVolume);
-            hasPlayed50Combo = true;
-        }
-        // 100ÄÞº¸ ´Þ¼º
-        else if (currentCombo == 100 && !hasPlayed100Combo && combo100Sound != null)
-        {
-            audioSource.PlayOneShot(combo100Sound, specialComboVolume);
-            hasPlayed100Combo = true;
-        }
-    }
-
-    // ÄÞº¸ ¸®¼Â
-    public void ResetCombo()
-    {
-        if (currentCombo == 0) return;
-
-        currentCombo = 0;
-        isComboActive = false;
-
-        // Æ¯¼ö ÄÞº¸ ÇÃ·¡±× ¸®¼Â
-        hasPlayed10Combo = false;
-        hasPlayed50Combo = false;
-        hasPlayed100Combo = false;
-
-        
-
-        OnComboChanged?.Invoke(currentCombo);
-    }
-
-    // ÄÞº¸ Á¡¼ö ¹è¼ö °è»ê
-    public float GetComboMultiplier()
-    {
-        // ±âº»ÀûÀ¸·Î ÄÞº¸ ¼ö¿¡ ºñ·ÊÇÑ ¹è¼ö (¿¹: 1.1, 1.2, 1.3...)
-        return 1f + (Mathf.Clamp(currentCombo, 0, maxComboLevel) * 0.1f);
-    }
-
-   
 
     private void PlayComboSound()
     {
         if (audioSource != null && comboSounds.Length > 0)
         {
-            int soundIndex = Mathf.Clamp(currentCombo - 1, 0, comboSounds.Length - 1);
-            audioSource.PlayOneShot(comboSounds[soundIndex], volume);
+            int index = Mathf.Clamp(currentCombo - 1, 0, comboSounds.Length - 1);
+            audioSource.PlayOneShot(comboSounds[index], volume);
         }
     }
 
-    
+    private void PlaySpecialComboSound()
+    {
+        if (audioSource == null) return;
 
-  
+        if (currentCombo == 10 && !hasPlayed10Combo && combo10Sound != null)
+        {
+            audioSource.PlayOneShot(combo10Sound, specialComboVolume);
+            hasPlayed10Combo = true;
+            Debug.Log(" 10ì½¤ë³´!");
+        }
+        else if (currentCombo == 50 && !hasPlayed50Combo && combo50Sound != null)
+        {
+            audioSource.PlayOneShot(combo50Sound, specialComboVolume);
+            hasPlayed50Combo = true;
+            Debug.Log(" 50ì½¤ë³´!");
+        }
+        else if (currentCombo == 100 && !hasPlayed100Combo && combo100Sound != null)
+        {
+            audioSource.PlayOneShot(combo100Sound, specialComboVolume);
+            hasPlayed100Combo = true;
+            Debug.Log(" 100ì½¤ë³´!");
+        }
+    }
 
-    // ÇöÀç ÄÞº¸ ¼ö °¡Á®¿À±â
+    public void ResetCombo()
+    {
+        if (currentCombo == 0) return;
+
+        Debug.Log($"ì½¤ë³´ ë¦¬ì…‹: {currentCombo} â†’ 0");
+        currentCombo = 0;
+        isComboActive = false;
+
+        hasPlayed10Combo = false;
+        hasPlayed50Combo = false;
+        hasPlayed100Combo = false;
+
+        UIManager.Instance?.UpdateCombo(currentCombo);
+    }
+
     public int GetCurrentCombo() => currentCombo;
-
-    // ÄÞº¸ È°¼º »óÅÂ È®ÀÎ
     public bool IsComboActive() => isComboActive;
 }
