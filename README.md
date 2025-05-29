@@ -145,8 +145,6 @@ if (GameManager.Instance != null && GameManager.Instance != this)
     
 SceneManager.LoadScene("Map_Asset");
 
-![Uploading image.png…]()
-
 
 
 ### 2. 게임 오버 시 Player의 Dead Animation이 실행되지 않음.
