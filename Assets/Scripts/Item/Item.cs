@@ -7,6 +7,7 @@ public class Item : MonoBehaviour
     Rigidbody _rigidbody;
     public float itemMoveSpeed = 25f;
 
+    
     void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();
@@ -25,11 +26,10 @@ public class Item : MonoBehaviour
             PlayerCondition player = other.GetComponent<PlayerCondition>();
             if (player != null)
             {
-                player.ActivateInvincibility(10f);
+                player.ActivateInvincibility(100f);
             }
             
             Destroy(gameObject);
         }
     }
-    
 }

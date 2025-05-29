@@ -65,7 +65,7 @@ public class Obstacle : MonoBehaviour
         // 장애물 오브젝트들이 ObstacleSpawner 오브젝트의 안에 생성됨
         // 생성된 장애물 오브젝트들이 ObstacleSpawner를 부모 오브젝트로 설정 - hierarchy 창을 정리하는 용도
         newObstacle.transform.parent = this.transform;
-
+        
         yield break; // 코루틴 종료
     }
 
@@ -89,7 +89,7 @@ public class Obstacle : MonoBehaviour
             // 생성된 장애물 오브젝트들이 ObstacleSpawner를 부모 오브젝트로 설정 - hierarchy 창을 정리하는 용도
             newObstacle.transform.parent = this.transform;
 
-            ObstacleMove obstacleMove = newObstacle.GetComponent<ObstacleMove>();
+            ObstacleBehavior obstacleMove = newObstacle.GetComponent<ObstacleBehavior>();
 
             // 소환 시간 = 거리 / 속도 
             float LongSpawnDelay = betweenObstacle / obstacleMove.obstacleSpeed;
