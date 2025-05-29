@@ -145,7 +145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3344462f91640c4bb3fe4db8203cdc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obstacleSpeed: 25
+  obstacleSpeed: 15
 --- !u!4 &2892067177059925384 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1adb346669b8848bd824335e7b1368be, type: 3}
