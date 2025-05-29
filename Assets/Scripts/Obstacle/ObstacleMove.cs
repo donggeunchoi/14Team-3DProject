@@ -24,10 +24,19 @@ public class ObstacleMove : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Time.timeScale = 0;
-            Debug.Log("장애물과 충돌로 인한 게임정지");
-            UIController.Instance.ShowGameOverUI();
+            StartCoroutine(nameof(GameOver));
         }
         Debug.Log($"[충돌 시작] 시간: {Time.time:F2}  {gameObject.name} vs {other.gameObject.name}  위치: {transform.position}");
+    }
+
+    IEnumerator GameOver()
+    {   
+        
+        CharacterManager.Instance.Player.controller.Dead();
+        Time.timeScale = 0;
+        yield return new WaitForSecondsRealtime(2.28f);
+        
+        Debug.Log("장애물과 충돌로 인한 게임정지");
+        UIController.Instance.ShowGameOverUI();
     }
 }
