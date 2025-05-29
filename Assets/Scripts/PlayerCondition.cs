@@ -14,16 +14,18 @@ public class PlayerCondition : MonoBehaviour
 
     public void ActivateInvincibility(float duration)
     {
-        if (!isInvincible)
+        if (!isInvincible) // 무적일 때
         {
             IsInvincible = true; // 무적상태
+            // InvincibilityCoroutine 발동
             StartCoroutine(InvincibilityCoroutine(duration));
         }
     }
 
     IEnumerator InvincibilityCoroutine(float duration)
     {
+        // duration(무적 시간)동안 기다림
         yield return new WaitForSeconds(duration);
-        IsInvincible = false;
+        IsInvincible = false; // 무적 해제
     }
 }
