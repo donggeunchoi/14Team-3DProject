@@ -137,4 +137,9 @@ public class PlayerController : MonoBehaviour
         _capsuleCollider.center = _originalColliderCenter;
         isRolling = false;
     }
+
+    public void Dead()
+    {
+        _animator.SetTrigger("Dead");
+    }
 }
