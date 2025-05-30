@@ -6899,6 +6899,9 @@ MonoBehaviour:
   - {fileID: 8665277427336616189, guid: 80821e1eb3dd17c4d9e38617be1f575e, type: 3}
   - {fileID: 3644546378239526850, guid: 82a4cee2741d0dc4eba3e7f0c6ca7f1c, type: 3}
   - {fileID: 1797683688515155284, guid: a11fb080dbb0fb348815b2d9acc30783, type: 3}
+  - {fileID: 4874790570234698411, guid: 51ce237fdd0aeb7439473e605d9c36fb, type: 3}
+  - {fileID: 5795076495779777821, guid: d38c417a9060e374596a2330e5b435f8, type: 3}
+  - {fileID: 2551710760506582834, guid: 2fbc7e95a8b949546aad2a88bc8f71e1, type: 3}
   obstacleStartZ: 20
   firstSpawnCount: 5
 --- !u!4 &2022915290
