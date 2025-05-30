@@ -38,17 +38,17 @@ public class PlayerCondition : MonoBehaviour
             _invincibleEffect.StartInvincible(); // 무적 효과 시작
         }
 
-        // 현재 duration이 1이라 1초 먼저 종료 시키고 무적 이펙트를 먼저 끔
-        // 무적이 끝난 이후 1초 후에 이펙트가 꺼져 무적 해제를 알아보기가 힘들음
-        yield return new WaitForSeconds(duration - 1);
+        // 실제 무적 시간보다 2초 먼저 종료 시키고 무적 이펙트를 먼저 끔
+        // 무적이 끝나고 2초 후에 이펙트가 꺼지기 때문에 무적 해제를 알아보기가 힘들음
+        yield return new WaitForSeconds(duration - 2);
 
         if (_invincibleEffect != null)
         {
             _invincibleEffect.EndInvincible(); // 무적 효과 종료
         }
 
-        // 1초 후 무적 종료
-        yield return new WaitForSeconds(1);
+        // 2초 후 무적 종료
+        yield return new WaitForSeconds(2);
         
         IsInvincible = false; // 무적 해제
     }

@@ -3555,7 +3555,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterRenderer: {fileID: 1254053476}
   intensity: 1
-  changeDuration: 1
+  changeDuration: 2
 --- !u!1 &1049420314
 GameObject:
   m_ObjectHideFlags: 0
