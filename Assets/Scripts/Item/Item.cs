@@ -6,7 +6,7 @@ public class Item : MonoBehaviour
 {
     Rigidbody _rigidbody;
     public float itemMoveSpeed = 25f; // 아이템 이동 속도
-    
+
     void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();

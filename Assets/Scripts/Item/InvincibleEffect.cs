@@ -5,9 +5,10 @@ using UnityEngine;
 // 플레이어 모델링의 색상을 바꾸는 스크립트 (무적 상태일 때)
 public class InvincibleEffect : MonoBehaviour
 {
-    [Header("무적 시각 효과 설정")] public Renderer characterRenderer; // 캐릭터 모델의 Renderer 컴포넌트를 연결
-    public float intensity = 1.0f; // 발광 강도 (인스펙터에서 조절 가능)
-    public float duration = 0.5f; // 색상 / 강도가 변하는 시간
+    [Header("무적 시각 효과 설정")]
+    [SerializeField] private Renderer characterRenderer; // 캐릭터 모델의 Renderer 컴포넌트를 연결
+    public float intensity = 1f; // 발광 강도 (인스펙터에서 조절 가능)
+    public float changeDuration = 1f; // 색상 / 강도가 변하는 시간
 
     private bool _isInvincible = false; // 무적 상태 인지 확인
     private Material[] _materials; // 여러 개의 material로 모델링이 구성되어 있어서 배열로 함
@@ -70,7 +71,7 @@ public class InvincibleEffect : MonoBehaviour
 
                 // 발광 효과를 부드럽게 페이드 인(서서히 밝아지는) 시키는 코루틴 시작
                 StartCoroutine(FadeEmission(mat, mat.GetColor("_EmissionColor"), selectedEmissionColor * intensity,
-                    duration, true));
+                    changeDuration, true));
             }
         }
     }
@@ -94,7 +95,6 @@ public class InvincibleEffect : MonoBehaviour
             if (mat.HasProperty("_EmissionColor"))
             {
                 Color originalColor = Color.black; // 기본값
-                bool originalKeywordState = false; // 기본값
 
                 // 각 material의 원래 Emission 색상 (Start에서 저장된 것)을 가져옴
                 if (_initEmsissions.ContainsKey(mat))
@@ -103,13 +103,14 @@ public class InvincibleEffect : MonoBehaviour
                 }
 
                 // 발광 효과를 부드럽게 페이드 아웃(서서히 어두워지는) 시키는 코루틴 시작
-                StartCoroutine(FadeEmission(mat, mat.GetColor("_EmissionColor"), originalColor, duration, false));
+                StartCoroutine(FadeEmission(mat, mat.GetColor("_EmissionColor"), Color.black, changeDuration, false,originalColor));
             }
         }
     }
 
     // 발광이 부드럽게 켜지고 꺼지는(페이드 인/아웃) 시각적 변화
-    IEnumerator FadeEmission(Material mat, Color startColor, Color endColor, float duration, bool finalKeywordState = true)
+    IEnumerator FadeEmission(Material mat, Color startColor, Color endColor, float duration,
+        bool finalKeywordState = true,  Color? restoreColor = null)
     {
         float timer = 0f; // 페이드(서서히 색이 바뀌는) 타이머
         while (timer < duration)
@@ -129,6 +130,7 @@ public class InvincibleEffect : MonoBehaviour
         mat.SetColor("_EmissionColor", endColor);
 
         // finalKeywordState 적용 (페이드가 끝난 후에만 적용)
+        // StartInvincible 호출 시 (true)
         if (finalKeywordState)
         {
             mat.EnableKeyword("_EMISSION"); // 키워드 활성화
@@ -136,9 +138,13 @@ public class InvincibleEffect : MonoBehaviour
         else
         {
             mat.DisableKeyword("_EMISSION"); // 키워드 비활성화
-
+            
+            if (restoreColor.HasValue)
+            {
+                mat.SetColor("_EmissionColor", restoreColor.Value);
+            }
             // 만약 원래 Emission이 없었거나, 효과를 끄는 것이라면 검은색으로 설정
-            if (endColor.r + endColor.g + endColor.b == 0) // 색상값이 0이면 (검은색이면)
+           else if (endColor.r + endColor.g + endColor.b == 0) // 색상값이 0이면 (검은색이면)
             {
                 mat.SetColor("_EmissionColor", Color.black);
             }

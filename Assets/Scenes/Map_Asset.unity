@@ -3540,7 +3540,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78c43dcdb492d7e4e84ce2aedfd85026, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  invincibleEffect: {fileID: 1012558098}
+  _invincibleEffect: {fileID: 1012558098}
 --- !u!114 &1012558098
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3554,9 +3554,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterRenderer: {fileID: 1254053476}
-  color: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
-  intensity: 10
-  duration: 0.5
+  intensity: 1
+  changeDuration: 1
 --- !u!1 &1049420314
 GameObject:
   m_ObjectHideFlags: 0
