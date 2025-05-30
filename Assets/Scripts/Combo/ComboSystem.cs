@@ -6,14 +6,12 @@ public class ComboSystem : MonoBehaviour
 
     [Header("Sound Settings")]
     public AudioSource audioSource;
-    public AudioClip[] comboSounds;
-    [Range(0f, 1f)] public float volume = 1f;
+    [Range(0f, 1f)] public float comboVolume = 1f;
 
-    [Header("Special Combo Sounds")]
+    [Header("Combo Sounds")]
     public AudioClip combo10Sound;
     public AudioClip combo50Sound;
     public AudioClip combo100Sound;
-    [Range(0f, 1f)] public float specialComboVolume = 1f;
 
     [Header("Combo Settings")]
     public float comboTimeout = 2f;
@@ -33,8 +31,14 @@ public class ComboSystem : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
+
             if (audioSource == null)
+            {
+                Debug.LogWarning("AudioSource가 비어 있습니다. 자동으로 추가합니다.");
                 audioSource = gameObject.AddComponent<AudioSource>();
+                audioSource.playOnAwake = false;
+                audioSource.spatialBlend = 0f; // 2D 사운드
+            }
         }
         else
         {
@@ -57,44 +61,32 @@ public class ComboSystem : MonoBehaviour
         isComboActive = true;
 
         PlayComboSound();
-        PlaySpecialComboSound();
         UIManager.Instance?.UpdateCombo(currentCombo);
     }
 
     private void PlayComboSound()
     {
-        if (audioSource != null && comboSounds.Length > 0)
-        {
-            int index = Mathf.Clamp(currentCombo - 1, 0, comboSounds.Length - 1);
-            audioSource.PlayOneShot(comboSounds[index], volume);
-        }
-    }
-
-    private void PlaySpecialComboSound()
-    {
         if (audioSource == null) return;
 
         if (currentCombo == 10 && !hasPlayed10Combo && combo10Sound != null)
         {
-            audioSource.PlayOneShot(combo10Sound, specialComboVolume);
+            audioSource.PlayOneShot(combo10Sound, comboVolume);
             hasPlayed10Combo = true;
-            Debug.Log(" 10콤보!");
-            
+            Debug.Log("10콤보!");
         }
         else if (currentCombo == 50 && !hasPlayed50Combo && combo50Sound != null)
         {
-            audioSource.PlayOneShot(combo50Sound, specialComboVolume);
+            audioSource.PlayOneShot(combo50Sound, comboVolume);
             hasPlayed50Combo = true;
-            Debug.Log(" 50콤보!");
+            Debug.Log("50콤보!");
         }
         else if (currentCombo == 100 && !hasPlayed100Combo && combo100Sound != null)
         {
-            audioSource.PlayOneShot(combo100Sound, specialComboVolume);
+            audioSource.PlayOneShot(combo100Sound, comboVolume);
             hasPlayed100Combo = true;
-            Debug.Log(" 100콤보!");
+            Debug.Log("100콤보!");
             Time.timeScale = 0f;
             UIController.Instance.ShowClearUI();
-            
         }
     }
 
