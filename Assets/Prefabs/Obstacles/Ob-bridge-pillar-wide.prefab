@@ -56,6 +56,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3440249540263913057, guid: 87c9443ee805d6c409b7005fa90c94c6, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3440249540263913057, guid: 87c9443ee805d6c409b7005fa90c94c6, type: 3}
+      propertyPath: m_IncludeLayers.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
     - target: {fileID: 5845510831992643578, guid: 87c9443ee805d6c409b7005fa90c94c6, type: 3}
       propertyPath: m_Name
       value: Collider
@@ -63,6 +71,10 @@ PrefabInstance:
     - target: {fileID: 5845510831992643578, guid: 87c9443ee805d6c409b7005fa90c94c6, type: 3}
       propertyPath: m_Layer
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5845510831992643578, guid: 87c9443ee805d6c409b7005fa90c94c6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -188,8 +200,8 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 0
   m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
+  m_Interpolate: 1
+  m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!65 &-729054208419629814
 BoxCollider:
@@ -224,7 +236,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3344462f91640c4bb3fe4db8203cdc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obstacleSpeed: 15
+  obstacleSpeed: 25
+  knockbackForce: 200
 --- !u!4 &7739686371461594152 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e6604d3219f3a4162ad84d39cd2cfe36, type: 3}
