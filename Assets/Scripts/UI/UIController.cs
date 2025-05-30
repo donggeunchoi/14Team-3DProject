@@ -86,17 +86,20 @@ public class UIController : MonoBehaviour
         GameManager.Instance.RestartGame();
     }
 
+    //게임 스타트 버튼을 누른다.
     public void OnClickGameSceneMove()
     {
         StartCoroutine(PlayCutSceneThenLoadScene());
     }
-
+    
     IEnumerator PlayCutSceneThenLoadScene()
     {
-        CutSceneController cutScene = FindObjectOfType < CutSceneController>();
+        //컷신매니저의 타입을 불러온다.
+        CutSceneManager cutScene = FindObjectOfType < CutSceneManager>();
     
         if (cutScene != null)
         {
+            
             cutScene.ShowCutScene();
             
             yield return StartCoroutine(cutScene.PlayCutSceneCoroutine());

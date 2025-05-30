@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class CutSceneController : MonoBehaviour
+public class CutSceneManager : MonoBehaviour
 {
     [SerializeField] private Image image;
     [SerializeField] private Image cutSceneImage;
@@ -13,7 +13,7 @@ public class CutSceneController : MonoBehaviour
     public float displaytime = 2f;
     public float fadeTime = 1f;
 
-   private static CutSceneController instance;
+   private static CutSceneManager instance;
    public bool isReady = false;
 
    private void Awake()
@@ -33,9 +33,7 @@ public class CutSceneController : MonoBehaviour
    
     public IEnumerator PlayCutSceneCoroutine()
     {
-        yield return new WaitUntil(()=>isReady);
-        
-        ShowCutScene();
+        yield return new WaitUntil(() => isReady);
         
         yield return StartCoroutine(PlayCutScene());
     }
@@ -52,9 +50,9 @@ public class CutSceneController : MonoBehaviour
             yield break;
         }
         
-        foreach (Sprite image in cutSceneImages)
+        foreach (Sprite sprite in cutSceneImages)
         {
-            cutSceneImage.sprite = image;
+            cutSceneImage.sprite = sprite;
 
             yield return StartCoroutine(Fade(0f, 1f));
             
@@ -62,6 +60,7 @@ public class CutSceneController : MonoBehaviour
             
             yield return StartCoroutine(Fade(1f, 0f));
         }
+        
         image.gameObject.SetActive(false);
     }
 
@@ -88,7 +87,7 @@ public class CutSceneController : MonoBehaviour
     {
         if (image != null)
         {
-        image.gameObject.SetActive(true);
+            image.gameObject.SetActive(true);
         }
         else
         {
