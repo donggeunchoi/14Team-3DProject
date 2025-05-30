@@ -11,10 +11,9 @@ public class CutSceneController : MonoBehaviour
     public float displaytime = 2f;
     public float fadeTime = 1f;
     
-    // Start is called before the first frame update
-    void Start()
+    public IEnumerator PlayCutSceneCoroutine()
     {
-        StartCoroutine(PlayCutScene());
+        yield return StartCoroutine(PlayCutScene());
     }
 
     IEnumerator PlayCutScene()
@@ -49,6 +48,11 @@ public class CutSceneController : MonoBehaviour
         }
         color.a = endAlpha;
         cutSceneImage.color = color;
+    }
+
+    public void ShowCutScene()
+    {
+        image.gameObject.SetActive(true);
     }
     
 }

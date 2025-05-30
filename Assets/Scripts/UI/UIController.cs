@@ -66,6 +66,7 @@ public class UIController : MonoBehaviour
     {
         GameManager.Instance.StartGame();
         RemoveStart();
+        
     }
 
     public void OnClickStopButton()
@@ -87,6 +88,20 @@ public class UIController : MonoBehaviour
 
     public void OnClickGameSceneMove()
     {
+        StartCoroutine(PlayCutSceneThenLoadScene());
+    }
+
+    IEnumerator PlayCutSceneThenLoadScene()
+    {
+        CutSceneController cutScene = FindObjectOfType < CutSceneController>();
+
+        if (cutScene != null)
+        {
+            cutScene.ShowCutScene();
+            
+            yield return StartCoroutine(cutScene.PlayCutSceneCoroutine());
+        }
+        
         SceneManager.LoadScene("Map_Asset");
     }
 
