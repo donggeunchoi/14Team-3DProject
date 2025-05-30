@@ -79,6 +79,7 @@ public class ComboSystem : MonoBehaviour
             audioSource.PlayOneShot(combo10Sound, specialComboVolume);
             hasPlayed10Combo = true;
             Debug.Log(" 10콤보!");
+            
         }
         else if (currentCombo == 50 && !hasPlayed50Combo && combo50Sound != null)
         {
@@ -91,6 +92,9 @@ public class ComboSystem : MonoBehaviour
             audioSource.PlayOneShot(combo100Sound, specialComboVolume);
             hasPlayed100Combo = true;
             Debug.Log(" 100콤보!");
+            Time.timeScale = 0f;
+            UIController.Instance.ShowClearUI();
+            
         }
     }
 
