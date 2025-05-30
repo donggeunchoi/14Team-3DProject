@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class PlayerCondition : MonoBehaviour
 {
-    public InvincibleEffect invincibleEffect; // InvincibleEffect스크립트 인스펙터에서 할당
+    [SerializeField] private InvincibleEffect _invincibleEffect; // InvincibleEffect스크립트 인스펙터에서 할당
     private bool isInvincible = false; // 무적상태 확인
-
+    private Item _item;
+    
     public bool IsInvincible // 외부에서 무적 상태인지 확인할 수 있도록 함
     {
         get { return isInvincible; }
@@ -31,19 +32,24 @@ public class PlayerCondition : MonoBehaviour
     /// <returns></returns>
     IEnumerator InvincibilityCoroutine(float duration)
     {
-        if (invincibleEffect != null)
+
+        if (_invincibleEffect != null)
         {
-            invincibleEffect.StartInvincible(); // 무적 효과 시작
+            _invincibleEffect.StartInvincible(); // 무적 효과 시작
         }
 
-        // duration만큼 대기
-        yield return new WaitForSeconds(duration);
+        // 현재 duration이 1이라 1초 먼저 종료 시키고 무적 이펙트를 먼저 끔
+        // 무적이 끝난 이후 1초 후에 이펙트가 꺼져 무적 해제를 알아보기가 힘들음
+        yield return new WaitForSeconds(duration - 1);
 
-        if (invincibleEffect != null)
+        if (_invincibleEffect != null)
         {
-            invincibleEffect.EndInvincible(); // 무적 효과 종료
+            _invincibleEffect.EndInvincible(); // 무적 효과 종료
         }
 
+        // 1초 후 무적 종료
+        yield return new WaitForSeconds(1);
+        
         IsInvincible = false; // 무적 해제
     }
 }
