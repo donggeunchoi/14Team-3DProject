@@ -75,6 +75,12 @@ public class ObstacleTest : MonoBehaviour
         // 풀에서 비활성 장애물 꺼내기
         GameObject obstacle = obstaclePool.Dequeue();
 
+        //====================================추가 내용=====================
+        obstacle.transform.rotation = Quaternion.identity; // 회전값 초기화
+        ObstacleBehavior obstacleBehavior = obstacle.GetComponent<ObstacleBehavior>();
+        obstacleBehavior.InitObstacle(); // 장애물 자체의 초기화 함수 호출
+        // ==========================================================
+        
         // x축 3개 중 랜덤
         float x = spawnXPosition[Random.Range(0, spawnXPosition.Length)];
         // z축은 다음 생성 위치
