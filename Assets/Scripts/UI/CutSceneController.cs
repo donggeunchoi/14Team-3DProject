@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class CutSceneController : MonoBehaviour
 {
+    public Image image;
     public Image cutSceneImage;
     public List<Sprite> cutSceneImages = new List<Sprite>();
     public float displaytime = 2f;
@@ -29,7 +30,7 @@ public class CutSceneController : MonoBehaviour
             yield return StartCoroutine(Fade(1f, 0f));
         }
         
-        cutSceneImage.gameObject.SetActive(false);
+        image.gameObject.SetActive(false);
     }
 
     IEnumerator Fade(float startAlpha, float endAlpha)
