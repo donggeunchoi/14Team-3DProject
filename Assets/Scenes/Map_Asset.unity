@@ -6903,7 +6903,7 @@ MonoBehaviour:
   - {fileID: 5795076495779777821, guid: d38c417a9060e374596a2330e5b435f8, type: 3}
   - {fileID: 2551710760506582834, guid: 2fbc7e95a8b949546aad2a88bc8f71e1, type: 3}
   obstacleStartZ: 20
-  firstSpawnCount: 5
+  firstSpawnCount: 8
 --- !u!4 &2022915290
 Transform:
   m_ObjectHideFlags: 0
