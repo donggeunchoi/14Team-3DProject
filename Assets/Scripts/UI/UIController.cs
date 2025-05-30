@@ -36,6 +36,7 @@ public class UIController : MonoBehaviour
     public void ShowGameOverUI()
     {
         endPanel.SetActive(true);
+        AudioManager.Instance?.PlayGameOverSound();
     }
 
     public void ShowClearUI()
