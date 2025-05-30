@@ -94,7 +94,7 @@ public class UIController : MonoBehaviour
     IEnumerator PlayCutSceneThenLoadScene()
     {
         CutSceneController cutScene = FindObjectOfType < CutSceneController>();
-
+    
         if (cutScene != null)
         {
             cutScene.ShowCutScene();
