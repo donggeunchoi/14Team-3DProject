@@ -14,15 +14,14 @@ public class ItemSpawner : MonoBehaviour
     [SerializeField] private List<GameObject> itemPrefabs;
 
     [Header("아이템 소환 설정")]
-    // 플레이어의 위치를 받아옴
     [SerializeField] private Transform playerTransform; // 플레이어 위치
-    // 3개의 라인
-    [SerializeField] private float[] spawnXPosition = new float[] { -2.6f, 0f, 2.6f };
+    [SerializeField] private float[] spawnXPosition = new float[] { -2.6f, 0f, 2.6f }; // 3개의 라인
     [SerializeField] private int initialPoolSize = 1; // 미리 생성할 아이템 수
 
     // 플레이어보다 얼마나 앞서서 아이템이 생성될지 시작 거리
     [SerializeField] private float spawnZStartOffset = 50f;
-    [SerializeField] private float spawnIntervalZ = 200f; // 생성될 아이템들 간의 Z축 간격
+    // 생성될 아이템들 간의 Z축 간격
+    [SerializeField] private float spawnIntervalZ = 200f;
 
     public static ItemSpawner Instance { get; private set; } // 싱글톤
 
@@ -31,7 +30,6 @@ public class ItemSpawner : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            // DontDestroyOnLoad(gameObject);
         }
         else
         {
