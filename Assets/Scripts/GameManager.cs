@@ -85,6 +85,8 @@ public class GameManager : MonoBehaviour
         {
             AudioManager.Instance.PlayGameOverSound();
         }
+        
+        SceneManager.LoadScene("StartScene");
     }
 
     public void RestartGame()
