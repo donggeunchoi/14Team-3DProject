@@ -59,6 +59,8 @@ public class ComboSystem : MonoBehaviour
         PlayComboSound();
         PlaySpecialComboSound();
         UIManager.Instance?.UpdateCombo(currentCombo);
+
+        ClearGame();
     }
 
     private void PlayComboSound()
@@ -92,9 +94,16 @@ public class ComboSystem : MonoBehaviour
             audioSource.PlayOneShot(combo100Sound, specialComboVolume);
             hasPlayed100Combo = true;
             Debug.Log(" 100콤보!");
+            
+        }
+    }
+
+    private void ClearGame()
+    {
+        if (currentCombo  == 100)
+        {
             Time.timeScale = 0f;
             UIController.Instance.ShowClearUI();
-            
         }
     }
 
