@@ -3555,7 +3555,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterRenderer: {fileID: 1254053476}
   color: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
-  intensity: 1
+  intensity: 10
   duration: 0.5
 --- !u!1 &1049420314
 GameObject:
@@ -4234,13 +4234,13 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -1580535799172915004, guid: f375e651c707c4292ba0fe8fa53f4783, type: 3}
-  - {fileID: -414921334540547795, guid: f375e651c707c4292ba0fe8fa53f4783, type: 3}
-  - {fileID: -1536519034987021355, guid: f375e651c707c4292ba0fe8fa53f4783, type: 3}
-  - {fileID: 4835078630258379571, guid: f375e651c707c4292ba0fe8fa53f4783, type: 3}
-  - {fileID: -3303489080311633890, guid: f375e651c707c4292ba0fe8fa53f4783, type: 3}
-  - {fileID: -2274090305892019849, guid: f375e651c707c4292ba0fe8fa53f4783, type: 3}
-  - {fileID: -4288583467269203127, guid: f375e651c707c4292ba0fe8fa53f4783, type: 3}
+  - {fileID: 2100000, guid: 6841370965b382d4bb2863fe870ce63b, type: 2}
+  - {fileID: 2100000, guid: 979a7183d46abc6478cdd7e3da9b0574, type: 2}
+  - {fileID: 2100000, guid: db82601e5f2a22d49a6454b9d1f63b4c, type: 2}
+  - {fileID: 2100000, guid: af1c917e0ede75a49be2ca4324d6d312, type: 2}
+  - {fileID: 2100000, guid: b0626caaa35257c4fb552794373e05a8, type: 2}
+  - {fileID: 2100000, guid: edaa949113a58dd45ad293ccdc984a69, type: 2}
+  - {fileID: 2100000, guid: d9b72c1729d809a4dad789e4cc8a0a0c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
