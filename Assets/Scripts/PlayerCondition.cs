@@ -4,17 +4,28 @@ using UnityEngine;
 
 public class PlayerCondition : MonoBehaviour
 {
-    [SerializeField] private int health = 3;
-    
-    // Start is called before the first frame update
-    void Start()
+    private bool isInvincible = false; // 무적상태 확인
+
+    public bool IsInvincible // 외부에서 무적 상태인지 확인할 수 있도록 함
     {
-        
+        get { return isInvincible; }
+        private set { isInvincible = value; }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ActivateInvincibility(float duration)
     {
-        
+        if (!isInvincible) // 무적일 때
+        {
+            IsInvincible = true; // 무적상태
+            // InvincibilityCoroutine 발동
+            StartCoroutine(InvincibilityCoroutine(duration));
+        }
+    }
+
+    IEnumerator InvincibilityCoroutine(float duration)
+    {
+        // duration(무적 시간)동안 기다림
+        yield return new WaitForSeconds(duration);
+        IsInvincible = false; // 무적 해제
     }
 }
