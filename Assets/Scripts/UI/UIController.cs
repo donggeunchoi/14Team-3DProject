@@ -9,10 +9,12 @@ public class UIController : MonoBehaviour
     public GameObject startPanel;
     public GameObject stopPanel;
     public GameObject endPanel;
+    public GameObject clearPanel;
     
     private bool gameStarted = false;
     private bool isStopping = false;
     private bool gameOver = false;
+    private bool isClear = false;
     
     public static UIController Instance { get; private set; }
 
@@ -34,6 +36,16 @@ public class UIController : MonoBehaviour
     public void ShowGameOverUI()
     {
         endPanel.SetActive(true);
+    }
+
+    public void ShowClearUI()
+    {
+        clearPanel.SetActive(true);
+    }
+
+    public void RemoveClearUI()
+    {
+        clearPanel.SetActive(false);
     }
 
     public void RemoveStart()
@@ -75,5 +87,11 @@ public class UIController : MonoBehaviour
     public void OnClickGameSceneMove()
     {
         SceneManager.LoadScene("Map_Asset");
+    }
+
+    public void OnClickStartSceneMove()
+    {
+        RemoveClearUI();
+        SceneManager.LoadScene("StartScene");
     }
 }
