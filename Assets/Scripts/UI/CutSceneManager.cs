@@ -21,7 +21,7 @@ public class CutSceneManager : MonoBehaviour
        if (instance == null)
        {
            instance = this;
-           // DontDestroyOnLoad(gameObject);
+           DontDestroyOnLoad(gameObject);
 
            isReady = true;
        }
@@ -50,10 +50,15 @@ public class CutSceneManager : MonoBehaviour
             yield break;
         }
         
+        Debug.Log("CutSceneCoroutine 실행됨!");
+        Debug.Log("CutSceneManager 인스턴스 ID: " + this.GetInstanceID());
+        Debug.Log("CutSceneImages 리스트 개수: " + cutSceneImages.Count);
+        
         foreach (Sprite sprite in cutSceneImages)
         {
             cutSceneImage.sprite = sprite;
 
+            Debug.Log(sprite?.name);
             yield return StartCoroutine(Fade(0f, 1f));
             
             yield return new WaitForSeconds(displaytime);
