@@ -5,7 +5,7 @@ using UnityEngine;
 public class ObstacleBehavior : MonoBehaviour
 {
     Rigidbody _rigidbody;
-    public float obstacleSpeed = 25f; // 장애물 이동속도
+    public float obstacleSpeed = 15f; // 장애물 이동속도
     public float knockbackForce = 500f; // 넉백 강도
 
     void Awake()

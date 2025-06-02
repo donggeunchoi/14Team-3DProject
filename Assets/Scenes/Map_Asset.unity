@@ -1965,7 +1965,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 546972555}
-  - component: {fileID: 546972554}
   m_Layer: 0
   m_Name: ObstacleSpawner
   m_TagString: Untagged
@@ -1973,31 +1972,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!114 &546972554
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 546972553}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8486467af3f02948962a3f53024fd98, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  obstaclePrefab:
-  - {fileID: 8665277427336616189, guid: 80821e1eb3dd17c4d9e38617be1f575e, type: 3}
-  - {fileID: 3644546378239526850, guid: 82a4cee2741d0dc4eba3e7f0c6ca7f1c, type: 3}
-  - {fileID: 1797683688515155284, guid: a11fb080dbb0fb348815b2d9acc30783, type: 3}
-  longObstaclePrefab:
-  - {fileID: 6927436808814208658, guid: ae1ff2428dcbfdd439c3885f7a402ef2, type: 3}
-  - {fileID: 4689951828064882192, guid: 744e298f3d4c7144cb5be1135b7d5132, type: 3}
-  spawnYPosition: 0.1
-  spawnZPosition: 60
-  minSpawnDelay: 2
-  maxSpawnDelay: 5
-  obstacleCount: 10
-  betweenObstacle: 2
 --- !u!4 &546972555
 Transform:
   m_ObjectHideFlags: 0
@@ -2215,6 +2189,7 @@ MonoBehaviour:
   - {fileID: 7033254851290017664, guid: a74995d26b9814620aa517947ed3b410, type: 3}
   - {fileID: 9221526938815551569, guid: 148a70c441abc42d2b1951a3231eea37, type: 3}
   firstSpawnCount: 7
+  poolCountPerPrefab: 2
 --- !u!4 &623420929
 Transform:
   m_ObjectHideFlags: 0
@@ -3420,9 +3395,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68cf28a89ed33564ab7280d4efd8721d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  moveSpeed: 15
   laneChangeSpeed: 10
-  jumpForce: 20
+  jumpForce: 30
   laneDistance: 2.6
   groundLayerMask:
     serializedVersion: 2
@@ -6879,7 +6854,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2022915289
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6902,8 +6877,9 @@ MonoBehaviour:
   - {fileID: 4874790570234698411, guid: 51ce237fdd0aeb7439473e605d9c36fb, type: 3}
   - {fileID: 5795076495779777821, guid: d38c417a9060e374596a2330e5b435f8, type: 3}
   - {fileID: 2551710760506582834, guid: 2fbc7e95a8b949546aad2a88bc8f71e1, type: 3}
-  obstacleStartZ: 20
-  firstSpawnCount: 8
+  obstacleStartZ: 40
+  firstSpawnCount: 4
+  maxAheadDistance: 70
 --- !u!4 &2022915290
 Transform:
   m_ObjectHideFlags: 0
@@ -7355,6 +7331,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2076067654}
   m_CullTransparentMesh: 1
+--- !u!1 &2079973223
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2079973225}
+  - component: {fileID: 2079973224}
+  m_Layer: 0
+  m_Name: TestManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2079973224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2079973223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae7870392b5134cd0b66e1cb3b6df887, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1012558095}
+  obstaclePrefabs:
+  - {fileID: 6927436808814208658, guid: ae1ff2428dcbfdd439c3885f7a402ef2, type: 3}
+  - {fileID: 4689951828064882192, guid: 744e298f3d4c7144cb5be1135b7d5132, type: 3}
+  - {fileID: 8665277427336616189, guid: 80821e1eb3dd17c4d9e38617be1f575e, type: 3}
+  - {fileID: 3644546378239526850, guid: 82a4cee2741d0dc4eba3e7f0c6ca7f1c, type: 3}
+  - {fileID: 1797683688515155284, guid: a11fb080dbb0fb348815b2d9acc30783, type: 3}
+  - {fileID: 4874790570234698411, guid: 51ce237fdd0aeb7439473e605d9c36fb, type: 3}
+  - {fileID: 5795076495779777821, guid: d38c417a9060e374596a2330e5b435f8, type: 3}
+  - {fileID: 2551710760506582834, guid: 2fbc7e95a8b949546aad2a88bc8f71e1, type: 3}
+  obstacleStartZ: 40
+  firstSpawnCount: 4
+  maxAheadDistance: 70
+--- !u!4 &2079973225
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2079973223}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2108850678
 GameObject:
   m_ObjectHideFlags: 0
@@ -7691,3 +7724,4 @@ SceneRoots:
   - {fileID: 623420929}
   - {fileID: 2022915290}
   - {fileID: 49024619}
+  - {fileID: 2079973225}

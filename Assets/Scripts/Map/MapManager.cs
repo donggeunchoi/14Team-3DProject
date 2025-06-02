@@ -10,6 +10,8 @@ public class MapManager : MonoBehaviour
     [SerializeField] private List<GameObject> mapPrefabs;
     // 처음 배치할 맵 조각 개수
     [SerializeField] private int firstSpawnCount = 10;
+    // 생성할 맵 풀 개수
+    [SerializeField] private int poolCountPerPrefab = 2;
 
     // 각 맵 조각의 길이 (z축 기준)
     private float mapLength = 10f;
@@ -18,31 +20,31 @@ public class MapManager : MonoBehaviour
     // 플레이어의 거리가 가까워지면 재배치                                  
     private float triggerOffsetZ;
 
-    private Queue<GameObject> mapPool = new Queue<GameObject>();
+    private List<GameObject> mapPool = new List<GameObject>();
     // 중복 호출 방지용
     private bool isRecycling = false;
 
     void Start()
     {
         nextSpawnZ = 0f;
-        triggerOffsetZ = firstSpawnCount * mapLength * 0.75f; // 생성된 구간의 75% 다음 맵 조각 준비
+        triggerOffsetZ = firstSpawnCount * mapLength * 0.75f;
 
-        // 처음 맵 조각 배치
+        // 프리팹 리스트 각각 poolCountPerPrefab 만큼 생성해서 풀에 넣기
+        for (int i = 0; i < mapPrefabs.Count; i++)
+        {
+            for (int j = 0; j < poolCountPerPrefab; j++)
+            {
+                GameObject mapChunk = Instantiate(mapPrefabs[i]);
+                mapChunk.SetActive(false);
+                mapChunk.transform.SetParent(this.transform);
+                mapPool.Add(mapChunk);
+            }
+        }
+
+        // firstSpawnCount 만큼 맵 배치
         for (int i = 0; i < firstSpawnCount; i++)
         {
-            // 랜덤으로 맵 프리팹 하나 선택
-            int index = Random.Range(0, mapPrefabs.Count);
-            GameObject mapChunk = Instantiate(mapPrefabs[index]);
-
-            // 해당 오브젝트를 (0,0,nextSpawnZ)에 배치
-            mapChunk.transform.position = new Vector3(0f, 0f, nextSpawnZ);
-            mapChunk.SetActive(true);
-
-            // 풀에 넣기
-            mapPool.Enqueue(mapChunk);
-
-            // 다음 맵 z 위치 계산
-            nextSpawnZ += mapLength;
+            SpawnNextMapPiece();
         }
     }
 
@@ -57,36 +59,32 @@ public class MapManager : MonoBehaviour
 
     void SpawnNextMapPiece()
     {
-        // 첫 생성시 랜덤 패턴 배치
-        int index = Random.Range(0, mapPrefabs.Count);
+        List<GameObject> inactiveList = mapPool.FindAll(m => !m.activeInHierarchy);
 
-        GameObject newMap = Instantiate(mapPrefabs[index],
-        new Vector3(0, 0, nextSpawnZ), Quaternion.identity);
-
-        mapPool.Enqueue(newMap);
-        nextSpawnZ += mapLength;
+        if (inactiveList.Count > 0)
+        {
+            GameObject selected = inactiveList[Random.Range(0, inactiveList.Count)];
+            selected.transform.position = new Vector3(0f, 0f, nextSpawnZ);
+            selected.SetActive(true);
+            nextSpawnZ += mapLength;
+        }
     }
 
     // 기존 맵 조각을 앞으로 이동시켜 재사용
-    private void RecycleMapPiece()
+    void RecycleMapPiece()
     {
         isRecycling = true;
 
-        if (mapPool.Count > 0)
+        for (int i = 0; i < mapPool.Count; i++)
         {
-            // 풀에서 가장 앞에 있는 맵 조각 꺼내기
-            GameObject oldMap = mapPool.Dequeue();
-
-            // 오브젝트를 다음 배치 위치로 이동
-            oldMap.transform.position = new Vector3(0f, 0f, nextSpawnZ);
-
-            // 다시 풀큐에 넣기
-            mapPool.Enqueue(oldMap);
-
-            // nextSpawnZ 업데이트
-            nextSpawnZ += mapLength;
+            GameObject map = mapPool[i];
+            if (map.activeInHierarchy && map.transform.position.z < player.position.z - mapLength)
+            {
+                map.SetActive(false);
+            }
         }
 
+        SpawnNextMapPiece();
         isRecycling = false;
     }
 }
