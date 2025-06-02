@@ -21,7 +21,6 @@ public class ScoreManager : MonoBehaviour
     public void AddScore(int score)
     {
         currentScore += score * 100;
-        Debug.Log($"점수: {currentScore}");
 
         UIManager.Instance?.UpdateScore(currentScore);
     }
