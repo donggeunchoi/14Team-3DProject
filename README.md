@@ -181,7 +181,7 @@ SceneManager.LoadScene("Map_Asset");
 <https://github.com/jjmm-del>
 
 
-정광훈 장애물, 게임오버, 점수시스템
+정광훈 장애물, 게임오버, 점수시스템, 아이템
 <https://github.com/JKH201020>
 
 
