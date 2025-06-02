@@ -3423,7 +3423,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   laneChangeSpeed: 10
-  jumpForce: 20
+  jumpForce: 500
   laneDistance: 2.6
   groundLayerMask:
     serializedVersion: 2
