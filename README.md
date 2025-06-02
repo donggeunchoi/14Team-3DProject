@@ -197,7 +197,7 @@ Unity 프로젝트 열기
 
 StartScene 씬 실행
 
-UI에서 Start → 조작 시작
+UI에서 Start → 스토리 실행 -> 조작 시작
 
 장애물을 피하고 점수 획득
 
