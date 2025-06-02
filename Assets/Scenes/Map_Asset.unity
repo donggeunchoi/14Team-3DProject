@@ -164,9 +164,33 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3565024223334218895, guid: eb3d32eb3315d45429c3c320c0504c48, type: 3}
+      propertyPath: spawnIntervalZ
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3565024223334218895, guid: eb3d32eb3315d45429c3c320c0504c48, type: 3}
+      propertyPath: initialPoolSize
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3565024223334218895, guid: eb3d32eb3315d45429c3c320c0504c48, type: 3}
       propertyPath: playerTransform
       value: 
       objectReference: {fileID: 1012558095}
+    - target: {fileID: 3565024223334218895, guid: eb3d32eb3315d45429c3c320c0504c48, type: 3}
+      propertyPath: maxSpawnAttempts
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3565024223334218895, guid: eb3d32eb3315d45429c3c320c0504c48, type: 3}
+      propertyPath: obstacles.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
+    - target: {fileID: 3565024223334218895, guid: eb3d32eb3315d45429c3c320c0504c48, type: 3}
+      propertyPath: overlapCheckRadius
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3565024223334218895, guid: eb3d32eb3315d45429c3c320c0504c48, type: 3}
+      propertyPath: obstacleLayer.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
     - target: {fileID: 4793084646612836484, guid: eb3d32eb3315d45429c3c320c0504c48, type: 3}
       propertyPath: m_Name
       value: ItemSpawner
