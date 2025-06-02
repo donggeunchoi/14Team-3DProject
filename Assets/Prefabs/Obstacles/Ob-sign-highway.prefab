@@ -57,6 +57,10 @@ PrefabInstance:
       value: Ob-sign-highway
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 1adb346669b8848bd824335e7b1368be, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1adb346669b8848bd824335e7b1368be, type: 3}
       propertyPath: m_TagString
       value: Untagged
       objectReference: {fileID: 0}
@@ -209,6 +213,10 @@ PrefabInstance:
       value: SlidingCollider
       objectReference: {fileID: 0}
     - target: {fileID: 5845510831992643578, guid: 2a72e4205d8535549b85fcd99ba61aa3, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5845510831992643578, guid: 2a72e4205d8535549b85fcd99ba61aa3, type: 3}
       propertyPath: m_TagString
       value: RollingObstacle
       objectReference: {fileID: 0}
@@ -233,6 +241,10 @@ PrefabInstance:
     - target: {fileID: 3896044612322851755, guid: bf66ec7ec9884d241b2ceb65405d92d1, type: 3}
       propertyPath: m_Name
       value: SlidingScoreCollider
+      objectReference: {fileID: 0}
+    - target: {fileID: 3896044612322851755, guid: bf66ec7ec9884d241b2ceb65405d92d1, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3896044612322851755, guid: bf66ec7ec9884d241b2ceb65405d92d1, type: 3}
       propertyPath: m_TagString
