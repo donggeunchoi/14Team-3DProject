@@ -205,9 +205,9 @@ public class ItemSpawner : MonoBehaviour
         {
             StartCoroutine(RespawnItemDelay(respawnDelay)); // 새로운 코루틴 시작
         }
-        // SpawnNextItem(); // 다음 아이템 소환
     }
 
+    // 아이템 소환 위치를 당기는 대신 너무 자주 나와도 안 되니 아이템 소환 딜레이를 만듦
     private IEnumerator RespawnItemDelay(float delay)
     {
         isRespawning = true; // 재생성 대기 중
