@@ -7,7 +7,6 @@ public class Item : MonoBehaviour
     Rigidbody _rigidbody;
     public float itemMoveSpeed = 25f; // 아이템 이동 속도
 
-
     void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();
@@ -25,8 +24,7 @@ public class Item : MonoBehaviour
         {
             // 충돌한 플레이어의 PlayerCondition 컴포넌트를 가져옴
             PlayerCondition player = other.GetComponent<PlayerCondition>();
-            // 무적 10초
-            player.ActivateInvincibility(10f);
+            player.ActivateInvincibility(10f); // 10초간 무적
 
             if (ItemSpawner.Instance != null)
             {
