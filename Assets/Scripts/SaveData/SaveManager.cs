@@ -1,4 +1,7 @@
 // SaveManager.cs
+
+using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SaveManager : MonoBehaviour
@@ -27,13 +30,30 @@ public class SaveManager : MonoBehaviour
         var loaded = SaveIO.Load();
         if (loaded != null) Data = loaded;
 
-        // 3) 시스템 반영 (예: 오디오)
-        AudioManager.Instance?.SetBGMVolume(Data.bgmVolume);
-        AudioManager.Instance?.SetSFXVolume(Data.sfxVolume);
+        if (AudioManager.Instance != null)
+        {
+            // 3) 시스템 반영 (예: 오디오)
+            AudioManager.Instance?.SetBGMVolume(Data.bgmVolume);
+            AudioManager.Instance?.SetSFXVolume(Data.sfxVolume);
+        }
+        else
+        {
+            StartCoroutine(NextFrame());
+        }
     }
 
     public void SaveNow()
     {
         SaveIO.Save(Data);
+    }
+
+    private IEnumerator NextFrame()
+    {
+        yield return null; // 한 프레임 대기 (AudioManager 초기화 보장)
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.SetBGMVolume(Data.bgmVolume);
+            AudioManager.Instance.SetSFXVolume(Data.sfxVolume);
+        }
     }
 }
