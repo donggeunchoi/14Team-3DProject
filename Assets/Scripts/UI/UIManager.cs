@@ -21,15 +21,14 @@ public class UIManager : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-            // DontDestroyOnLoad(gameObject);
-        }
-        else
+        if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
         }
+        
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+       
     }
     
     //시작할때 초기화 시키기

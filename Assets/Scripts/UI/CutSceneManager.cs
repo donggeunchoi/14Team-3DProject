@@ -13,22 +13,21 @@ public class CutSceneManager : MonoBehaviour
     public float displaytime = 2f;
     public float fadeTime = 1f;
 
-   private static CutSceneManager instance;
+   public static CutSceneManager Instance { get; private set; }
    public bool isReady = false;
 
    private void Awake()
    {
-       if (instance == null)
-       {
-           instance = this;
-           DontDestroyOnLoad(gameObject);
-
-           isReady = true;
-       }
-       else
+       if (Instance != null && Instance != this)
        {
            Destroy(gameObject);
+           return;
        }
+       Instance = this;
+       DontDestroyOnLoad(gameObject);
+
+       isReady = true;
+      
    }
    
     public IEnumerator PlayCutSceneCoroutine()
