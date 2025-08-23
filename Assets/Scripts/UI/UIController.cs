@@ -27,7 +27,7 @@ public class UIController : MonoBehaviour
         }
         
         Instance = this;
-        DontDestroyOnLoad(gameObject);
+        // DontDestroyOnLoad(gameObject);
     }
    
     public void ShowStartUI(bool active)

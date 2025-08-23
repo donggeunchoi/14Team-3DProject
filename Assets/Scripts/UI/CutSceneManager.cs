@@ -24,10 +24,15 @@ public class CutSceneManager : MonoBehaviour
            return;
        }
        Instance = this;
-       DontDestroyOnLoad(gameObject);
+       // DontDestroyOnLoad(gameObject);
 
+       if (isReady == true)
+       {
+           return;
+       }
+       
        isReady = true;
-      
+
    }
    
     public IEnumerator PlayCutSceneCoroutine()
@@ -98,5 +103,11 @@ public class CutSceneManager : MonoBehaviour
             Debug.Log("배경없는데요?");
         }
     }
-    
+
+    public void OnClickSkipButton()
+    {
+        SceneManager.LoadScene("Map_Asset");
+        
+        image.gameObject.SetActive(false);
+    }
 }
