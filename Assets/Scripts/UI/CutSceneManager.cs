@@ -37,9 +37,15 @@ public class CutSceneManager : MonoBehaviour
    
     public IEnumerator PlayCutSceneCoroutine()
     {
-        yield return new WaitUntil(() => isReady);
+        if(SaveManager.Instance.Data.seenPrologueCutscene) 
+            yield break;
+        
+        // yield return new WaitUntil(() => isReady);
         
         yield return StartCoroutine(PlayCutScene());
+        
+        SaveManager.Instance.Data.seenPrologueCutscene = true;
+        SaveManager.Instance.SaveNow();
     }
 
     IEnumerator PlayCutScene()
@@ -106,8 +112,10 @@ public class CutSceneManager : MonoBehaviour
 
     public void OnClickSkipButton()
     {
+        SaveManager.Instance.Data.seenPrologueCutscene = true;
+        SaveManager.Instance.SaveNow();
+
+        StopAllCoroutines();
         SceneManager.LoadScene("Map_Asset");
-        
-        image.gameObject.SetActive(false);
     }
 }
