@@ -4,55 +4,36 @@ using UnityEngine;
 
 public class StartCameraSway : MonoBehaviour
 {
-    [Header("Movement")]
-    [Tooltip("좌우 위치 이동 진폭(미터)")]
-    public float positionAmplitude = 0.6f;
-    [Tooltip("좌우 회전(요) 진폭(도)")]
-    public float yawAmplitude = 5f;
-    [Tooltip("초당 왕복 빈도(Hz). 0.1이면 10초에 한 왕복")]
-    public float frequency = 0.1f;
+    [Tooltip("좌우 이동 진폭(미터)")] public float posAmp = 0.6f;
+    [Tooltip("좌우 회전(도)")]       public float yawAmp = 5f;
+    [Tooltip("왕복 주기(초)")]       public float period = 10f;
 
-    [Tooltip("위치 스웨이 사용 여부")]
-    public bool usePosition = true;
-    [Tooltip("회전 스웨이(요) 사용 여부")]
-    public bool useYaw = true;
-
-    Vector3 _startPos;
-    Quaternion _startRot;
-    float _t0;
+    Vector3 basePos;
+    Quaternion baseRot;
+    float t0;
 
     void Awake()
     {
-        _startPos = transform.position;
-        _startRot = transform.rotation;
-        _t0 = Time.unscaledTime;   // timeScale=0에서도 진행
+        basePos = transform.position;
+        baseRot = transform.rotation;
+        t0 = Time.unscaledTime; // pause에도 진행
     }
 
     void LateUpdate()
     {
-        // 사인파 시간값 (언스케일드)
-        float w = (Time.unscaledTime - _t0) * Mathf.PI * 2f * frequency;
-        if (usePosition)
-        {
-            float x = Mathf.Sin(w) * positionAmplitude;
-            // 현재 카메라의 오른쪽 방향 기준으로 좌우 이동
-            transform.position = _startPos + transform.right * x;
-        }
-        if (useYaw)
-        {
-            float yaw = Mathf.Sin(w) * yawAmplitude;
-            transform.rotation = _startRot * Quaternion.Euler(0f, yaw, 0f);
-        }
+        float w = (Time.unscaledTime - t0) * (Mathf.PI * 2f) / Mathf.Max(0.001f, period);
+        float s = Mathf.Sin(w);
+
+        // 좌우 이동(카메라 오른쪽 축 기준)
+        transform.position = basePos + transform.right * (s * posAmp);
+        // Yaw 회전
+        transform.rotation = baseRot * Quaternion.Euler(0f, s * yawAmp, 0f);
     }
 
-    // 시작 버튼 누를 때 호출하면 스웨이 정지/초기화
     public void StopSway(bool reset = true)
     {
         enabled = false;
-        if (reset)
-        {
-            transform.position = _startPos;
-            transform.rotation = _startRot;
-        }
+        if (reset) { transform.position = basePos; transform.rotation = baseRot; }
     }
 }
+
