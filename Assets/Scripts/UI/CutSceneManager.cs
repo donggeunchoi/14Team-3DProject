@@ -37,9 +37,6 @@ public class CutSceneManager : MonoBehaviour
    
     public IEnumerator PlayCutSceneCoroutine()
     {
-        if(SaveManager.Instance.Data.seenPrologueCutscene) 
-            yield break;
-        
         // yield return new WaitUntil(() => isReady);
         
         yield return StartCoroutine(PlayCutScene());

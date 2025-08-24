@@ -106,6 +106,8 @@ public class UIController : MonoBehaviour
     
         if (cutScene != null)
         {
+            if(SaveManager.Instance.Data.seenPrologueCutscene) 
+                yield return SceneManager.LoadSceneAsync("Map_Asset");
             
             cutScene.ShowCutScene();
             
