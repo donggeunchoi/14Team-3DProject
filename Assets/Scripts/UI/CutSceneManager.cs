@@ -12,7 +12,7 @@ public class CutSceneManager : MonoBehaviour
     public List<Sprite> cutSceneImages = new List<Sprite>();
     public float displaytime = 2f;
     public float fadeTime = 1f;
-
+    private bool _isPressSkip = false;
    public static CutSceneManager Instance { get; private set; }
    public bool isReady = false;
 
@@ -97,6 +97,7 @@ public class CutSceneManager : MonoBehaviour
 
     public void ShowCutScene()
     {
+        _isPressSkip = false;
         if (image != null)
         {
             image.gameObject.SetActive(true);
@@ -109,6 +110,9 @@ public class CutSceneManager : MonoBehaviour
 
     public void OnClickSkipButton()
     {
+        if (_isPressSkip) return;
+        _isPressSkip = true;
+        
         SaveManager.Instance.Data.seenPrologueCutscene = true;
         SaveManager.Instance.SaveNow();
 
